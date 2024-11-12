@@ -13,8 +13,12 @@ export const messagesTable = pgTable("messages", {
   user_id: integer().notNull(),
 });
 
-export const fetchMessagesTable = pgTable("fetchedMessages", {
+export const fetchMessagesTable = pgTable("fetched_messages", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
   timestamp: integer().notNull(),
   user_id: integer().notNull(),
 });
+
+
+
+

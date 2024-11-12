@@ -41,7 +41,7 @@ export const createRepository = () => {
       await db.insert(fetchMessagesTable).values({user_id: userId, timestamp});
     },
 
-    updateUserTokenBy: async (token: number, userId: number) => {
+    updateUserTokenById: async (token: number, userId: number) => {
       await db.update(usersTable).set({token}).where(eq(usersTable.id, userId));
     }
   }
