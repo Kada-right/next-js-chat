@@ -1,10 +1,11 @@
-import 'dotenv/config';
-import { drizzle } from 'drizzle-orm/node-postgres';
 import { fetchMessagesTable, messagesTable, usersTable } from './schema';
 import { eq, lte } from 'drizzle-orm';
+import { Db, } from './instance';
 
-export const createRepository = () => {
-  const db = drizzle(process.env.DATABASE_URL!);
+export const createRepository = (db: Db) => {
+
+
+
 
   return {
     getAllMessages: async () => {

@@ -1,7 +1,16 @@
-export default function Message() {
+type MessageProps = {
+  message: {
+    id: number;
+    message: string;
+    timestamp: number;
+    user_id: number;
+  }
+};
+
+export default function Message({ message }: MessageProps) {
   return (
     <>
-      <div>Message</div> 
+      <p>{message.message}</p>
     </>
   );
 }

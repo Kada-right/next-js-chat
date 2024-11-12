@@ -1,11 +1,22 @@
 import Message from "./message";
 
-export default function MessageBoard() {
+type MessageBoardProps = {
+  messages: {
+    id: number;
+    message: string;
+    timestamp: number;
+    user_id: number;    
+  }[]
+};
+
+export default function MessageBoard({ messages }: MessageBoardProps) {
   return (
     <>
-      <Message />
-      <Message />
-      <Message />
+      {
+        messages.map((message, index) => {
+          return <Message key={index} message={message} />
+        })
+      }
     </>
   );
 }
