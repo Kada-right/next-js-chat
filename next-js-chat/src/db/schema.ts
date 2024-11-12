@@ -6,14 +6,14 @@ export const usersTable = pgTable("users", {
   token: integer().notNull(),
 });
 
-export const messagesTable = pgTable("users", {
+export const messagesTable = pgTable("messages", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
-  content: varchar({ length: 255 }).notNull(),
+  message: varchar({ length: 255 }).notNull(),
   timestamp: integer().notNull(),
   user_id: integer().notNull(),
 });
 
-export const fetchMessagesTable = pgTable("users", {
+export const fetchMessagesTable = pgTable("fetchedMessages", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
   timestamp: integer().notNull(),
   user_id: integer().notNull(),

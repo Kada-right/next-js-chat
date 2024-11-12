@@ -11,8 +11,8 @@ export const createRepository = () => {
       return await db.select().from(messagesTable);
     },
 
-    getAllMessagesById: async (userId: string) => {
-      return await db.select().from(messagesTable).where(eq(messagesTable.user_id, Number(userId)));
+    getAllMessagesById: async (userId: number) => {
+      return await db.select().from(messagesTable).where(eq(messagesTable.user_id, userId));
     },
 
     getAllMessagesByTimestamp: async (timestamp: number) => { 
@@ -21,8 +21,8 @@ export const createRepository = () => {
         .where(lte(messagesTable.timestamp, timestamp)); 
     },
 
-    postMessage: async (message: unknown) => {
-      await db.insert(messagesTable).values(message);
+    postMessage: async (message: string, userId: number, timestamp: number) => {
+      await db.insert(messagesTable).values({message, user_id: userId, timestamp});
     },
 
     getAllUsers: async () => {
@@ -30,13 +30,19 @@ export const createRepository = () => {
     },
 
     addUser: async(username: string) => {
-      await db.insert(usersTable).values(username);
+      await db.insert(usersTable).values({username, token: 3});
     },
 
-    postFetchedMessage: async(userId: string, timestamp: number) => {
-      await db.insert(fetchMessagesTable).values({userId, timestamp});
+    getUserById: async (userId: number) => {
+      return await db.select().from(usersTable).where(eq(usersTable.id, userId));
+    },
+
+    postFetchedMessage: async(userId: number, timestamp: number) => {
+      await db.insert(fetchMessagesTable).values({user_id: userId, timestamp});
+    },
+
+    updateUserTokenBy: async (user: unknown, userId: number) => {
+      await db.update(usersTable).set(user).where(eq(usersTable.id, userId));
     }
   }
-
-
 }
