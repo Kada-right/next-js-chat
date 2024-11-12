@@ -9,12 +9,12 @@ export const usersTable = pgTable("users", {
 export const messagesTable = pgTable("users", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
   content: varchar({ length: 255 }).notNull(),
-  timeStamp: integer().notNull(),
+  timestamp: integer().notNull(),
   user_id: integer().notNull(),
 });
 
 export const fetchMessagesTable = pgTable("users", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
-  timeStamp: integer().notNull(),
+  timestamp: integer().notNull(),
   user_id: integer().notNull(),
 });
