@@ -2,6 +2,7 @@ import { postMessageAction } from "@/features/chat/actions";
 
 export default function MessageInput() {
   return (
+    <div className="bg-gray-800 text-white p-4 flex justify-between items-center">
     <form action={postMessageAction} className="max-w-lg mx-auto p-6 bg-black shadow-lg rounded-lg">
     <div className="mb-4">
       <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
@@ -22,5 +23,6 @@ export default function MessageInput() {
       Skicka
     </button>
   </form>
+  </div>
   );
 }

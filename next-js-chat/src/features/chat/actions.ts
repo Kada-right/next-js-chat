@@ -14,3 +14,4 @@ export async function postMessageAction(formData: FormData) {
 
   revalidatePath("/"); /// KOLLA PÅ!!!!
 } 
+
