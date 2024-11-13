@@ -1,21 +1,35 @@
-import { Message } from "./message";
+import { CooldownMessage } from "./cooldown-message";
+import { ValidMessage } from "./valid-message";
+
 
 
 type MessageBoardProps = {
-  messages: {
+  cooldownMessages: {
     id: number;
     message: string;
     timestamp: number;
     user_id: number;    
+  }[],
+  validMessage: {
+    id: number;
+    message: string;
+    timestamp: number;
+    user_id: number;
   }[]
+
 };
 
-export default function MessageBoard({ messages }: MessageBoardProps) {
+export default function MessageBoard({ validMessage, cooldownMessages }: MessageBoardProps) {
   return (
     <>
       {
-        messages.map(message => {
-          return <Message key={message.id} message={message.message} />
+        cooldownMessages.map(message => {
+          return <CooldownMessage key={message.id} cooldownMessage={message}/>
+        })
+      }
+            {
+        validMessage.map(message => {
+          return <ValidMessage key={message.id} validMessage={message} />
         })
       }
     </>

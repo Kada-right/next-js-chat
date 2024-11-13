@@ -12,7 +12,7 @@ export default async function Page() {
       <MessageInput /> 
       <div>
         <FetchMessageButton />
-        <MessageBoard messages={cooldownMessages} /> 
+        <MessageBoard validMessage={validMessages} cooldownMessages={cooldownMessages} /> 
       </div> 
     </>
   );
