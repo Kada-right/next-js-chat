@@ -11,14 +11,13 @@ export default async function Page() {
 
   return (
     <>
-      <Logout />
-      <Stats />
-      <div>
+      <div className="bg-gray-800 text-white p-4 flex justify-between items-center">
         <MessageInput /> 
-        <PostMessageButton />
       </div>
+      <div>
       <FetchMessageButton />
-      <MessageBoard messages={messages} />   
+      <MessageBoard messages={messages} /> 
+      </div> 
     </>
   );
 }

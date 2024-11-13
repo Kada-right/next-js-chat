@@ -1,7 +1,7 @@
 export default function Logout() {
   return (
-    <>
-      <div>Logout</div> 
-    </>
+    <button>
+      Logout
+    </button>
   );
 }
