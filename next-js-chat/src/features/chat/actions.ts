@@ -12,7 +12,12 @@ export async function postMessageAction(formData: FormData) {
   const hardCodedUserId = 1;
 
   await chatService.postMessage(message, hardCodedUserId);
-
-  revalidatePath("/"); /// KOLLA PÅ!!!!
 } 
+
+export async function postFetchMessageAction(userId: string) {
+  //await chatService.postFetchedMessage(userId);
+  console.log("userId: ", userId);
+
+ // revalidatePath("/");
+}
 

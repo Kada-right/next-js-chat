@@ -1,6 +1,11 @@
 "use client"
 
-export default function FetchMessageButton() {
+import { postFetchMessageAction } from "@/features/chat/actions"; //Fråga import
 
-  return <button onClick={() => console.log("HEJ")}>Fetch message button</button>;
+export default function FetchMessageButton() {
+  const hardCodedUserId = "8";
+
+  const postFetchMessageActionWithId = postFetchMessageAction.bind(null, hardCodedUserId);
+
+  return <button onClick={postFetchMessageActionWithId}>Fetch message button</button>;
 }
