@@ -9,15 +9,16 @@ export const createService = (db: Db) => {
     },
 
     postMessage: async (message: string, userId: number) => {
+      //zod valdiation::::.
       const timestamp = 15//Date.now();
 
       await db.insert(messagesTable).values({message, user_id: userId, timestamp});
     },
 
-    postFetchedMessage: async(userId: number) => {
+    postFetchedMessage: async(userId: string) => {
       const timestamp = Date.now();
 
-      await db.insert(fetchMessagesTable).values({user_id: userId, timestamp});
+      await db.insert(fetchMessagesTable).values({user_id: Number(userId), timestamp});
     },
 
     updateUserTokenById: async (token: number, userId: number) => {
