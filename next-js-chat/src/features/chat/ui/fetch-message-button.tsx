@@ -1,6 +1,6 @@
 "use client"
 
-import { postFetchMessageAction } from "./actions";
+import { postFetchMessageAction } from "../actions";
 
 export default function FetchMessageButton() {
   const hardCodedUserId = "1";
