@@ -43,6 +43,16 @@ export const createService = (db: Db) => {
 
     updateUserTokenById: async (token: number, userId: number) => {
       await db.update(usersTable).set({token}).where(eq(usersTable.id, userId));
+    },
+
+    getTokensById: async (userId: string) => {
+      const data = await db.select().from(usersTable).where(eq(usersTable.id, Number(userId)));
+      return data[0].token;
+    },
+
+    decrementTokenById: async (userId: string, token: number) => {
+      const newToken = token - 1;
+      await db.update(usersTable).set({ token: newToken}).where(eq(usersTable.id, Number(userId)));
     }
   };  
 };

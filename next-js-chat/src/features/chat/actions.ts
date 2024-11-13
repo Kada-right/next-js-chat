@@ -15,7 +15,15 @@ export async function postMessageAction(formData: FormData) {
 } 
 
 export async function postFetchMessageAction(userId: string) {
+  const token = await chatService.getTokensById(userId);
+
+  if (!token) {
+    throw new Error("No tokens left");
+  }
+
   await chatService.postFetchedMessage(userId);
+
+  await chatService.decrementTokenById(userId, token);
 
 
   revalidatePath("/");
