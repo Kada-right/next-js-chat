@@ -1,3 +1,4 @@
+import { chatService } from "../instance";
 
 type ValidMessageBoardProps = {
   validMessage: {
@@ -9,12 +10,13 @@ type ValidMessageBoardProps = {
 }
 
 export async function ValidMessage( { validMessage } : ValidMessageBoardProps ) {
+  const name = await chatService.getUserNameById(validMessage.user_id);
 
   return (
     <>
     <p>MESSAGE: {validMessage.message}</p>
     <p>TIMESTAMP: {validMessage.timestamp}</p>
-    <p>USER ID: {validMessage.user_id}</p>
+    <p>NAME: {name}</p>
     </>   
   );
 }

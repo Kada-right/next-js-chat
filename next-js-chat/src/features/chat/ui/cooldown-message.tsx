@@ -1,3 +1,4 @@
+import { chatService } from "../instance";
 
 type CooldownMessageBoardProps = {
     cooldownMessage: {
@@ -9,12 +10,13 @@ type CooldownMessageBoardProps = {
   }
   
   export async function CooldownMessage( { cooldownMessage } : CooldownMessageBoardProps ) {
-  
+    const name = await chatService.getUserNameById(cooldownMessage.user_id);
+
     return (
       <>
       <p>COOLDOWN MESSAGE:</p>
       <p>TIMESTAMP: {cooldownMessage.timestamp}</p>  
-      <p>USER ID: {cooldownMessage.user_id}</p>
+      <p>NAME: {name}</p>
       </>   
     );
   }
