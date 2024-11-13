@@ -1,7 +1,7 @@
 'use server'
 
 import { revalidatePath } from "next/cache";
-import { createFeature } from "./feature";
+import { chatService } from "./instance";
 
 export async function postMessageAction(formData: FormData) {
   console.log("Form data: ", formData);
@@ -11,16 +11,8 @@ export async function postMessageAction(formData: FormData) {
 
   const hardCodedUserId = 1;
 
-  await createFeature().service.postMessage(message, hardCodedUserId);
+  await chatService.postMessage(message, hardCodedUserId);
 
   revalidatePath("/"); /// KOLLA PÅ!!!!
-}
-
-export async function postFetchedMessageAction(userId: string) {
-
-  await createFeature().service.postFetchedMessage(userId);
-
-  revalidatePath("/");
-
-}
+} 
 
