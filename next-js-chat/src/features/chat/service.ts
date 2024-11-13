@@ -1,15 +1,23 @@
 import { Db } from "@/db/instance";
 import { messagesTable, fetchMessagesTable, usersTable } from "@/db/schema";
-import { eq, lte } from "drizzle-orm";
+import { eq, gte, lte } from "drizzle-orm";
 
 export const createService = (db: Db) => {
   return {
     getAllMessages: async () => {
       return await db.select().from(messagesTable);
+    },  
+
+    getAllMessagesByTimestampInCooldown: async (timestamp: number) => {
+      const cooldownTimestamp = timestamp - 1;
+      return await db.select().from(messagesTable).where(gte(messagesTable.timestamp, cooldownTimestamp));
     },
-    getAllMessagesByTimestamp: async (timestamp: number) => {
-      return await db.select().from(messagesTable).where(lte(messagesTable.timestamp, timestamp));
+
+    getAllValidMessagesByTimestamp: async (timestamp: number) => {
+      const validTimestamp = timestamp - 1;
+      return await db.select().from(messagesTable).where(lte(messagesTable.timestamp, validTimestamp));
     },
+
     postMessage: async (message: string, userId: number) => {
       //zod valdiation::::. MÅSTE FIXA BTILL BIGINT eller så
       const timestamp = 16//Date.now();
@@ -19,7 +27,7 @@ export const createService = (db: Db) => {
 
     postFetchedMessage: async(userId: string) => {
       //const timestamp = Date.now(); MÅSTE FIXA BTILL BIGINT eller så
-      const timestamp = 15//Date.now();
+      const timestamp = 13//Date.now();
 
       await db.insert(fetchMessagesTable).values({user_id: Number(userId), timestamp});
     },
