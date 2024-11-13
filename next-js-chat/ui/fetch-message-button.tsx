@@ -1,7 +1,6 @@
+"use client"
+
 export default function FetchMessageButton() {
-  return (
-    <>
-      <div>Fetch message button</div> 
-    </>
-  );
+
+  return <button onClick={() => console.log("HEJ")}>Fetch message button</button>;
 }
