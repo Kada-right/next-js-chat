@@ -1,16 +1,10 @@
-type MessageProps = {
-  message: {
-    id: number;
-    message: string;
-    timestamp: number;
-    user_id: number;
-  }
-};
+import { createFeature } from "@/features/chat/feature";
 
-export default function Message({ message }: MessageProps) {
+export async function Message() {
+  const messages = await createFeature().service.getAllMessages();
   return (
     <>
-      <p>{message.message}</p>
+      <pre>{JSON.stringify(messages, null, 2)}</pre>
     </>
   );
 }

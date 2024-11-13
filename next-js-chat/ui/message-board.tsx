@@ -1,4 +1,5 @@
-import Message from "./message";
+import { Message } from "./message";
+
 
 type MessageBoardProps = {
   messages: {
