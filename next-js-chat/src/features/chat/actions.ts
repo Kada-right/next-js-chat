@@ -15,9 +15,9 @@ export async function postMessageAction(formData: FormData) {
 } 
 
 export async function postFetchMessageAction(userId: string) {
-  //await chatService.postFetchedMessage(userId);
-  console.log("userId: ", userId);
+  await chatService.postFetchedMessage(userId);
 
- // revalidatePath("/");
+
+  revalidatePath("/");
 }
 

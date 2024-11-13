@@ -1,4 +1,4 @@
-import FetchMessageButton from "../../../ui/fetch-message-button";
+import FetchMessageButton from "../../features/chat/fetch-message-button";
 //import MessageBoard from "../../../ui/message-board";
 import MessageInput from "../../../ui/message-input";
 

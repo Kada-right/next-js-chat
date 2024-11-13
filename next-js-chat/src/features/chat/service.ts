@@ -9,14 +9,15 @@ export const createService = (db: Db) => {
     },
 
     postMessage: async (message: string, userId: number) => {
-      //zod valdiation::::.
+      //zod valdiation::::. MÅSTE FIXA BTILL BIGINT eller så
       const timestamp = 15//Date.now();
 
       await db.insert(messagesTable).values({message, user_id: userId, timestamp});
     },
 
     postFetchedMessage: async(userId: string) => {
-      const timestamp = Date.now();
+      //const timestamp = Date.now(); MÅSTE FIXA BTILL BIGINT eller så
+      const timestamp = 15//Date.now();
 
       await db.insert(fetchMessagesTable).values({user_id: Number(userId), timestamp});
     },
