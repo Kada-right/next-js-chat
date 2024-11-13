@@ -18,6 +18,11 @@ export const createService = (db: Db) => {
       return await db.select().from(messagesTable).where(lte(messagesTable.timestamp, validTimestamp));
     },
 
+    getUserNameById: async (userId: number) => {
+      const user = await db.select().from(usersTable).where(eq(usersTable.id, Number(userId)));
+      return user[0].username;
+    },
+
     postMessage: async (message: string, userId: number) => {
       //zod valdiation::::. MÅSTE FIXA BTILL BIGINT eller så
       const timestamp = 16//Date.now();
