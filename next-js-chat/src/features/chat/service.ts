@@ -1,6 +1,6 @@
 import { Db } from "@/db/instance";
 import { messagesTable, fetchMessagesTable, usersTable } from "@/db/schema";
-import { eq, gte, lte } from "drizzle-orm";
+import { desc, eq, gte, lte } from "drizzle-orm";
 
 export const createService = (db: Db) => {
   return {
@@ -37,7 +37,12 @@ export const createService = (db: Db) => {
       await db.insert(fetchMessagesTable).values({user_id: Number(userId), timestamp});
     },
     getFetchedMessageTimestampById: async (userId: string) => {
-      const [fetchedMessage] = await db.select().from(fetchMessagesTable).where(eq(fetchMessagesTable.user_id, Number(userId)));
+      const [fetchedMessage] = await db
+        .select()
+        .from(fetchMessagesTable)
+        .where(eq(fetchMessagesTable.user_id, Number(userId)))
+        .orderBy(desc(fetchMessagesTable.timestamp))
+        .limit(1);
       return fetchedMessage.timestamp;
     },
 
