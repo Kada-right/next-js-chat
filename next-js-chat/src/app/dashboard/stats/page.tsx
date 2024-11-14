@@ -1,19 +1,31 @@
-import FetchMessageButton from "@/features/chat/ui/fetch-message-button";
 import { chatService } from "@/features";
-import MessageInput from "@/features/chat/ui/message-input";
-import MessageBoard from "@/features/chat/ui/message-board";
+
+async function getMessagesPerFetch(fetchValid: boolean) {
+
+  let timestamp = await chatService.getLatestFetchedMessageTimestampById("1");
+  let penultimateTimestamp = await chatService.getPenultimateFetchedMessageTimestampById("1");
+
+
+  if(fetchValid) {
+      timestamp -= 1;
+      penultimateTimestamp -= 1;
+  }
+
+  const penultimateMessages = await chatService.getAllMessagesByTimestamp(penultimateTimestamp);
+  const latestMessages = await chatService.getAllMessagesByTimestamp(timestamp);
+  const messagesPerFetch = latestMessages.length - penultimateMessages.length;
+  return messagesPerFetch;
+}
+
 
 export default async function Page() {
-  const timestamp = await chatService.getFetchedMessageTimestampById("1");
-  const cooldownMessages = await chatService.getAllMessagesByTimestampInCooldown(timestamp);  
-  const validMessages = await chatService.getAllValidMessagesByTimestamp(timestamp);
+  const messagesPerFetch = await getMessagesPerFetch(true);
+
+  console.log(messagesPerFetch)
+
   return (
     <>
-      <MessageInput /> 
-      <div>
-        <FetchMessageButton />
-        <MessageBoard validMessage={validMessages} cooldownMessages={cooldownMessages} /> 
-      </div> 
+    <p>Leaderboard</p>
     </>
   );
 }

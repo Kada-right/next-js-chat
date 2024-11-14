@@ -7,7 +7,17 @@ export const createService = (db: Db) => {
   return {
     getAllMessages: async () => {
       return await db.select().from(messagesTable);
-    },  
+    },
+    
+    getAllMessagesByUserId: async (userId: string) => {
+      const messages = await db.select().from(messagesTable).where(eq(messagesTable.user_id, Number(userId)))
+      return messages.length;
+
+    },
+
+    getAllMessagesByTimestamp: async (timestamp: number) => {
+      return await db.select().from(messagesTable).where(lte(messagesTable.timestamp, timestamp));
+    },
 
     getAllMessagesByTimestampInCooldown: async (timestamp: number) => {
       const cooldownTimestamp = timestamp - 1;
@@ -26,18 +36,18 @@ export const createService = (db: Db) => {
 
     postMessage: async (message: string, userId: number) => {
       //zod valdiation::::. MÅSTE FIXA BTILL BIGINT eller så
-      const timestamp = 8//Date.now();
+      const timestamp = 23//Date.now();
 
       await db.insert(messagesTable).values({message, user_id: userId, timestamp});
     },
 
     postFetchedMessage: async(userId: string) => {
       //const timestamp = Date.now(); MÅSTE FIXA BTILL BIGINT eller så
-      const timestamp = 13//Date.now();
+      const timestamp = 23//Date.now();
 
       await db.insert(fetchMessagesTable).values({user_id: Number(userId), timestamp});
     },
-    getFetchedMessageTimestampById: async (userId: string) => {
+    getLatestFetchedMessageTimestampById: async (userId: string) => {
       const [fetchedMessage] = await db
         .select()
         .from(fetchMessagesTable)
@@ -46,6 +56,19 @@ export const createService = (db: Db) => {
         .limit(1);
       return fetchedMessage.timestamp;
     },
+
+    getPenultimateFetchedMessageTimestampById: async (userId: string) => {
+      const fetchedMessage = await db
+        .select()
+        .from(fetchMessagesTable)
+        .where(eq(fetchMessagesTable.user_id, Number(userId)))
+        .orderBy(desc(fetchMessagesTable.timestamp))
+        if(fetchedMessage.length <= 1) {
+          throw new Error("Array to short")
+        }
+      return fetchedMessage[1].timestamp;
+    },
+
 
     updateUserTokenById: async (token: number, userId: number) => {
       await db.update(usersTable).set({token}).where(eq(usersTable.id, userId));
