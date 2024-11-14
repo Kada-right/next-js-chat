@@ -39,11 +39,17 @@ export default async function Page() {
   } = await getStats();
 
   return (
-    <>
-      <h1>Leaderboard</h1>
-      <p>Number of messages by user: {numberOfMessagesByUser}</p>
-      <p>Number of messages by fetch: {numberOfMessagesPerFetch}</p>
-      <p>Number of valid messages per fetch: {numberOfValidMessagesPerFetch}</p>
-    </>
+    <div className="w-full max-w-md mx-auto bg-gray-100 p-6 mt-5 rounded-lg shadow-lg text-center">
+      <h1 className="text-2xl font-bold mb-4 text-gray-800">Leaderboard</h1>
+      <p className="text-lg text-gray-700 mb-2">
+        <span className="font-semibold">Number of messages by user:</span> {numberOfMessagesByUser}
+      </p>
+      <p className="text-lg text-gray-700 mb-2">
+        <span className="font-semibold">Number of messages by fetch:</span> {numberOfMessagesPerFetch}
+      </p>
+      <p className="text-lg text-gray-700 mb-2">
+        <span className="font-semibold">Number of valid messages per fetch:</span> {numberOfValidMessagesPerFetch}
+      </p>
+    </div>
   );
-}
+}  
