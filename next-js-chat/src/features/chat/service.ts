@@ -25,8 +25,10 @@ export const createService = (db: Db) => {
     },
 
     getAllMessagesByTimestampInCooldown: async (timestamp: number) => {
-      const cooldownTimestamp = timestamp - (1000 * 60 * 60);
+      if (timestamp <= 1000 * 60 * 60) return [];
 
+      const cooldownTimestamp = timestamp - (1000 * 60 * 60);
+    
       return await db
         .select()
         .from(messagesTable)
@@ -34,7 +36,9 @@ export const createService = (db: Db) => {
     },
 
     getAllValidMessagesByTimestamp: async (timestamp: number) => {
-      const validTimestamp = timestamp - (1000 * 60 * 60);
+      if (timestamp <= 1000 * 60 * 60) return [];
+
+      const validTimestamp = timestamp - (1000 * 60 * 60)
       
       return await db
         .select()
@@ -75,7 +79,7 @@ export const createService = (db: Db) => {
         .orderBy(desc(fetchMessagesTable.timestamp))
         .limit(1);
       
-      if (!fetchedMessage) return false;
+      if (!fetchedMessage) return 0;
       
       return fetchedMessage.timestamp;
     },
