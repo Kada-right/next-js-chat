@@ -1,5 +1,5 @@
 {
-  "id": "510ff0d4-de29-447d-9b2a-16285ace6999",
+  "id": "dc2a2638-6c53-4838-92df-74e79893ffd0",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -27,7 +27,7 @@
         },
         "timestamp": {
           "name": "timestamp",
-          "type": "integer",
+          "type": "bigint",
           "primaryKey": false,
           "notNull": true
         },
@@ -75,7 +75,7 @@
         },
         "timestamp": {
           "name": "timestamp",
-          "type": "integer",
+          "type": "bigint",
           "primaryKey": false,
           "notNull": true
         },
