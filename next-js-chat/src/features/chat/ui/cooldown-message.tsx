@@ -16,9 +16,9 @@ export async function CooldownMessage({
 
   return (
     <>
-      <p>COOLDOWN MESSAGE:</p>
-      <p>TIMESTAMP: {cooldownMessage.timestamp}</p>
-      <p>NAME: {name}</p>
+      <p>Cooldown message:</p>
+      <p>Date: {`${new Date(cooldownMessage.timestamp).toLocaleDateString()} ${new Date(cooldownMessage.timestamp).toLocaleTimeString()}`}</p>
+      <p>Name: {name}</p>
     </>
   );
 }
