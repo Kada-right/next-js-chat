@@ -1,4 +1,4 @@
-import { integer, pgTable, varchar } from "drizzle-orm/pg-core";
+import { bigint, integer, pgTable, varchar } from "drizzle-orm/pg-core";
 
 export const usersTable = pgTable("users", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
@@ -9,12 +9,12 @@ export const usersTable = pgTable("users", {
 export const messagesTable = pgTable("messages", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
   message: varchar({ length: 255 }).notNull(),
-  timestamp: integer().notNull(),
+  timestamp: bigint('timestamp', { mode: 'number' }).notNull(),
   user_id: integer().notNull(),
 });
 
 export const fetchMessagesTable = pgTable("fetched_messages", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
-  timestamp: integer().notNull(),
+  timestamp: bigint('timestamp', { mode: 'number' }).notNull(),
   user_id: integer().notNull(),
 });
