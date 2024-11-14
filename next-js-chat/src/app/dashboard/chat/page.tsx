@@ -1,4 +1,3 @@
-import FetchMessageButton from "@/features/chat/ui/fetch-message-button";
 import { chatService } from "@/features";
 import MessageInput from "@/features/chat/ui/message-input";
 import MessageBoard from "@/features/chat/ui/message-board";
