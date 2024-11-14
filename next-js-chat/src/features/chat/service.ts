@@ -9,10 +9,9 @@ export const createService = (db: Db) => {
       return await db.select().from(messagesTable);
     },
     
-    getAllMessagesByUserId: async (userId: string) => {
+    getNumberOfMessagesByUserId: async (userId: string) => {
       const messages = await db.select().from(messagesTable).where(eq(messagesTable.user_id, Number(userId)))
       return messages.length;
-
     },
 
     getAllMessagesByTimestamp: async (timestamp: number) => {
