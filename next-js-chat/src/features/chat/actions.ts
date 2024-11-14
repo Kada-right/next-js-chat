@@ -4,18 +4,17 @@ import { revalidatePath } from "next/cache";
 import { chatService } from "./instance";
 
 export async function postMessageAction(formData: FormData) {
-  console.log("Form data: ", formData);
-  //validation skicka vidare objekt med rawData??
-
   const message = formData.get("message") as string;
+  
+  // Skicka vidare till service för validering
 
-  const hardCodedUserId = 1;
+  const hardCodedUserId = 1; // Ändra sen 
 
   await chatService.postMessage(message, hardCodedUserId);
 }
 
 export async function postFetchMessageAction(userId: string) {
-  const timestamp = 1231313; //await chatService.getFetchedMessageTimestampById(userId);
+  const timestamp = await chatService.getLatestFetchedMessageTimestampById(userId);
 
   let tokens = await chatService.getTokensById(userId);
 
