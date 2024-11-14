@@ -6,27 +6,28 @@ type MessageBoardProps = {
     id: number;
     message: string;
     timestamp: number;
-    user_id: number;
-  }[];
+    user_id: number;    
+  }[],
   validMessage: {
     id: number;
     message: string;
     timestamp: number;
     user_id: number;
-  }[];
+  }[]
 };
 
-export default function MessageBoard({
-  validMessage,
-  cooldownMessages,
-}: MessageBoardProps) {
+export default function MessageBoard({ validMessage, cooldownMessages }: MessageBoardProps) {
   return (
-    <div className=" rounded-lg w-full h-96 overflow-y-auto flex flex-col items-center items-center">
+    <div className="rounded-lg w-full h-96 overflow-y-auto flex flex-col items-center pt-4">
       {cooldownMessages.map((message) => (
-        <CooldownMessage key={message.id} cooldownMessage={message} />
+        <div key={message.id} className="mb-4 w-full px-4">
+          <CooldownMessage cooldownMessage={message} />
+        </div>
       ))}
       {validMessage.map((message) => (
-        <ValidMessage key={message.id} validMessage={message} />
+        <div key={message.id} className="mb-4 w-full px-4">
+          <ValidMessage validMessage={message} />
+        </div>
       ))}
     </div>
   );
