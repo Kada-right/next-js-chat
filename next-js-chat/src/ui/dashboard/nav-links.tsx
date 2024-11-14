@@ -4,24 +4,28 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from 'clsx';
 
+const links = [
+  {
+    name: "Stats",
+    href: "/dashboard/stats"
+  },
+  {
+    name: "Chat",
+    href: "/dashboard/chat"
+  },
+  {
+    name: "Logout",
+    href: "/"
+  }
+];
+
 export function NavLinks() {
-  const links = [
-    {
-      name: "Stats",
-      href: "/dashboard/stats"
-    },
-    {
-      name: "Chat",
-      href: "/dashboard/chat"
-    },
-  ];
+
   const pathname = usePathname();
 
   return (
-    <>
+    <div className="flex justify-end">
       {links.map((link) => {
-        console.log("Ref:", link.href)
-        console.log("Pathname", pathname)
         return (
           <Link
             key={link.name}
@@ -32,10 +36,10 @@ export function NavLinks() {
                 'bg-sky-100 text-blue-600': pathname === link.href,
               },
             )}>
-            <p className="hidden md:block">{link.name}</p>
+            <p>{link.name}</p>
           </Link>
         );
       })}
-    </>
+    </div>
   );
 }

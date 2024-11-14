@@ -26,7 +26,7 @@ export const createService = (db: Db) => {
 
     postMessage: async (message: string, userId: number) => {
       //zod valdiation::::. MÅSTE FIXA BTILL BIGINT eller så
-      const timestamp = 16//Date.now();
+      const timestamp = 8//Date.now();
 
       await db.insert(messagesTable).values({message, user_id: userId, timestamp});
     },

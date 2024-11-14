@@ -1,4 +1,5 @@
-import TopNav from "../../../ui/dashboard/top-nav";
+import TopNav from "@/ui/dashboard/top-nav";
+
 
 export default function Layout({
   children,

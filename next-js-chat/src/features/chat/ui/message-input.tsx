@@ -1,10 +1,11 @@
 import { postMessageAction } from "@/features/chat/actions";
+import FetchMessageButton from "./fetch-message-button";
 
 export default function MessageInput() {
   return (
-    <div className="bg-gray-800 text-white p-4 flex justify-between items-center">
-    <form action={postMessageAction} className="max-w-lg mx-auto p-6 bg-black shadow-lg rounded-lg">
-    <div className="mb-4">
+    <div className="max-w-lg bg-black shadow-lg rounded-lg mt-5">
+    <form action={postMessageAction}>
+    <div>
       <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
         Meddelande:
       </label>
@@ -23,6 +24,7 @@ export default function MessageInput() {
       Skicka
     </button>
   </form>
-  </div>
+    <FetchMessageButton />
+    </div>
   );
 }

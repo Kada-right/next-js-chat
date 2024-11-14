@@ -8,12 +8,10 @@ export default async function Page() {
   const cooldownMessages = await chatService.getAllMessagesByTimestampInCooldown(timestamp);  
   const validMessages = await chatService.getAllValidMessagesByTimestamp(timestamp);
   return (
-    <>
-      <MessageInput /> 
-      <div>
-        <FetchMessageButton />
+    <div className="flex flex-col items-center">
         <MessageBoard validMessage={validMessages} cooldownMessages={cooldownMessages} /> 
-      </div> 
-    </>
+
+      <MessageInput /> 
+    </div>
   );
 }

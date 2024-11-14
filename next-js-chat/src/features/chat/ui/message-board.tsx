@@ -21,7 +21,7 @@ type MessageBoardProps = {
 
 export default function MessageBoard({ validMessage, cooldownMessages }: MessageBoardProps) {
   return (
-    <>
+    <div className="h-64 overflow-y-auto flex flex-col items-center">
       {
         cooldownMessages.map(message => {
           return <CooldownMessage key={message.id} cooldownMessage={message}/>
@@ -32,6 +32,6 @@ export default function MessageBoard({ validMessage, cooldownMessages }: Message
           return <ValidMessage key={message.id} validMessage={message} />
         })
       }
-    </>
+    </div>
   );
 }
