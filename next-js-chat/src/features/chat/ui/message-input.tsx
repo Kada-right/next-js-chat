@@ -22,7 +22,7 @@ export default function MessageInput() {
           />
         </div>
         <button
-          className="bg-fuchsia-700 mt-4 px-4 py-2 rounded-md text-white font-medium mx-auto block transition-transform transform hover:bg-fuchsia-900 hover:scale-105"
+          className="bg-slate-500 mt-4 px-4 py-2 rounded-md text-white font-medium mx-auto block transition-transform transform hover:bg-slate-700 hover:scale-105"
           type="submit"
         >
           Submit

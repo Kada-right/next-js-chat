@@ -10,7 +10,7 @@ export default async function Page() {
     await chatService.getAllValidMessagesByTimestamp(timestamp);
 
   return (
-    <div className="w-full max-w-screen-lg mx-auto border border-gray-300 rounded-lg mt-5">
+    <div className="w-full max-w-screen-lg mx-auto  border-t-4 border-r-4 border-slate-500 rounded-lg mt-5">
       <div className="flex flex-col items-center w-full h-full">
         <MessageBoard
           validMessage={validMessages}
