@@ -15,7 +15,10 @@ export async function ValidMessage({ validMessage }: ValidMessageBoardProps) {
   return (
     <>
       <p>Message: {validMessage.message}</p>
-      <p>Date: {`${new Date(validMessage.timestamp).toLocaleDateString()} ${new Date(validMessage.timestamp).toLocaleTimeString()}`}</p>
+      <p>
+        Date:{" "}
+        {`${new Date(validMessage.timestamp).toLocaleDateString()} ${new Date(validMessage.timestamp).toLocaleTimeString()}`}
+      </p>
       <p>Name: {name}</p>
     </>
   );

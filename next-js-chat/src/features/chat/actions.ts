@@ -5,16 +5,17 @@ import { chatService } from "./instance";
 
 export async function postMessageAction(formData: FormData) {
   const message = formData.get("message") as string;
-  
+
   // Skicka vidare till service för validering
 
-  const hardCodedUserId = 1; // Ändra sen 
+  const hardCodedUserId = 1; // Ändra sen
 
   await chatService.postMessage(message, hardCodedUserId);
 }
 
 export async function postFetchMessageAction(userId: string) {
-  const timestamp = await chatService.getLatestFetchedMessageTimestampById(userId);
+  const timestamp =
+    await chatService.getLatestFetchedMessageTimestampById(userId);
 
   let tokens = await chatService.getTokensById(userId);
 

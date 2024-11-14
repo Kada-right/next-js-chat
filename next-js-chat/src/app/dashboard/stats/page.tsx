@@ -38,20 +38,25 @@ export default async function Page() {
     numberOfMessagesPerFetch,
   } = await getStats();
 
-    return (
-      <div className="h-screen bg-gradient-to-r from-gray-100 to-slate-500 flex items-center justify-center">
-        <div className="w-full max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg text-center">
-          <h1 className="text-2xl font-bold mb-4 text-gray-800">Leaderboard</h1>
-          <p className="text-lg text-gray-700 mb-2">
-            <span className="font-semibold">Number of messages by user:</span> {numberOfMessagesByUser}
-          </p>
-          <p className="text-lg text-gray-700 mb-2">
-            <span className="font-semibold">Number of messages by fetch:</span> {numberOfMessagesPerFetch}
-          </p>
-          <p className="text-lg text-gray-700 mb-2">
-            <span className="font-semibold">Number of valid messages per fetch:</span> {numberOfValidMessagesPerFetch}
-          </p>
-        </div>
+  return (
+    <div className="h-screen bg-gradient-to-r from-gray-100 to-slate-500 flex items-center justify-center">
+      <div className="w-full max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg text-center">
+        <h1 className="text-2xl font-bold mb-4 text-gray-800">Leaderboard</h1>
+        <p className="text-lg text-gray-700 mb-2">
+          <span className="font-semibold">Number of messages by user:</span>{" "}
+          {numberOfMessagesByUser}
+        </p>
+        <p className="text-lg text-gray-700 mb-2">
+          <span className="font-semibold">Number of messages by fetch:</span>{" "}
+          {numberOfMessagesPerFetch}
+        </p>
+        <p className="text-lg text-gray-700 mb-2">
+          <span className="font-semibold">
+            Number of valid messages per fetch:
+          </span>{" "}
+          {numberOfValidMessagesPerFetch}
+        </p>
       </div>
-    );
-  }
+    </div>
+  );
+}

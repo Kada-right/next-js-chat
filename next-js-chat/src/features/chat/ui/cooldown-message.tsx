@@ -17,7 +17,10 @@ export async function CooldownMessage({
   return (
     <>
       <p>Cooldown message:</p>
-      <p>Date: {`${new Date(cooldownMessage.timestamp).toLocaleDateString()} ${new Date(cooldownMessage.timestamp).toLocaleTimeString()}`}</p>
+      <p>
+        Date:{" "}
+        {`${new Date(cooldownMessage.timestamp).toLocaleDateString()} ${new Date(cooldownMessage.timestamp).toLocaleTimeString()}`}
+      </p>
       <p>Name: {name}</p>
     </>
   );

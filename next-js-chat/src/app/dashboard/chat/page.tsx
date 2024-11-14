@@ -4,11 +4,11 @@ import MessageBoard from "@/features/chat/ui/message-board";
 
 export default async function Page() {
   const timestamp = await chatService.getLatestFetchedMessageTimestampById("2");
-  
+
   const cooldownMessages =
     await chatService.getAllMessagesByTimestampInCooldown(timestamp);
-  
-    const validMessages =
+
+  const validMessages =
     await chatService.getAllValidMessagesByTimestamp(timestamp);
 
   return (
@@ -17,7 +17,7 @@ export default async function Page() {
         <MessageBoard
           validMessage={validMessages}
           cooldownMessages={cooldownMessages}
-        />      
+        />
         <MessageInput />
       </div>
     </div>
