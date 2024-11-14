@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier . --write",
-    "test": "tsx --test"
+    "test": "tsx --test",
+    "format": "pretter . --write"
   },
   "dependencies": {
     "clsx": "^2.1.1",
