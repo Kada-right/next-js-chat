@@ -2,7 +2,6 @@
 
 import { revalidatePath } from "next/cache";
 import { chatService } from "./instance";
-import { getTokens } from "@/utils/get-tokens";
 
 export async function postMessageAction(formData: FormData) {
   console.log("Form data: ", formData);
@@ -20,9 +19,7 @@ export async function postFetchMessageAction(userId: string) {
 
   let tokens = await chatService.getTokensById(userId);
 
-  const timeNow = Date.now();
-
-  tokens = getTokens(tokens, timestamp, timeNow);
+  tokens = chatService.getUserTokens(tokens, timestamp);
 
   if (!tokens) {
     throw new Error("No tokens left");
@@ -31,7 +28,6 @@ export async function postFetchMessageAction(userId: string) {
   await chatService.postFetchedMessage(userId);
 
   await chatService.decrementTokenById(userId, tokens);
-
 
   revalidatePath("/");
 }
