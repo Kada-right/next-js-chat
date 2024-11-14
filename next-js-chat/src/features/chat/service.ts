@@ -25,7 +25,8 @@ export const createService = (db: Db) => {
     },
 
     getAllMessagesByTimestampInCooldown: async (timestamp: number) => {
-      const cooldownTimestamp = timestamp - 1;
+      const cooldownTimestamp = timestamp - (1000 * 60 * 60);
+
       return await db
         .select()
         .from(messagesTable)
@@ -33,7 +34,8 @@ export const createService = (db: Db) => {
     },
 
     getAllValidMessagesByTimestamp: async (timestamp: number) => {
-      const validTimestamp = timestamp - 1;
+      const validTimestamp = timestamp - (1000 * 60 * 60);
+      
       return await db
         .select()
         .from(messagesTable)
@@ -49,8 +51,8 @@ export const createService = (db: Db) => {
     },
 
     postMessage: async (message: string, userId: number) => {
-      //zod valdiation::::. MÅSTE FIXA BTILL BIGINT eller så
-      const timestamp = 23; //Date.now();
+      //zod valdiation: MÅSTE FIXA BTILL BIGINT eller så
+      const timestamp = Date.now();
 
       await db
         .insert(messagesTable)
@@ -58,13 +60,13 @@ export const createService = (db: Db) => {
     },
 
     postFetchedMessage: async (userId: string) => {
-      //const timestamp = Date.now(); MÅSTE FIXA BTILL BIGINT eller så
-      const timestamp = 23; //Date.now();
+      const timestamp = Date.now();
 
       await db
         .insert(fetchMessagesTable)
         .values({ user_id: Number(userId), timestamp });
     },
+
     getLatestFetchedMessageTimestampById: async (userId: string) => {
       const [fetchedMessage] = await db
         .select()
@@ -72,6 +74,9 @@ export const createService = (db: Db) => {
         .where(eq(fetchMessagesTable.user_id, Number(userId)))
         .orderBy(desc(fetchMessagesTable.timestamp))
         .limit(1);
+      
+      if (!fetchedMessage) return false;
+      
       return fetchedMessage.timestamp;
     },
 
