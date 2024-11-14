@@ -1,13 +1,9 @@
-"use client"
+"use client";
 
 import Link from "next/link";
 
 export function StatsButton() {
-  const handleClick = () => {
+  const handleClick = () => {};
 
-  };
-
-  return (
-    <button onClick={handleClick}> Stats </button>
-  );
+  return <button onClick={handleClick}> Stats </button>;
 }

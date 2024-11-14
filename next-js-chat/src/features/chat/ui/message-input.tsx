@@ -6,7 +6,10 @@ export default function MessageInput() {
     <div className="w-full shadow-lg rounded-lg mt-0 p-5">
       <form action={postMessageAction}>
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+          <label
+            htmlFor="message"
+            className="block text-sm font-medium text-gray-300 mb-2"
+          >
             Meddelande:
           </label>
           <input

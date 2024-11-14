@@ -18,7 +18,3 @@ export const fetchMessagesTable = pgTable("fetched_messages", {
   timestamp: integer().notNull(),
   user_id: integer().notNull(),
 });
-
-
-
-
