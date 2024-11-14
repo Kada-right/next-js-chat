@@ -1,5 +1,6 @@
 import { Db } from "@/db/instance";
 import { messagesTable, fetchMessagesTable, usersTable } from "@/db/schema";
+import { getTokens } from "@/utils/get-tokens";
 import { desc, eq, gte, lte } from "drizzle-orm";
 
 export const createService = (db: Db) => {
@@ -58,6 +59,12 @@ export const createService = (db: Db) => {
     decrementTokenById: async (userId: string, token: number) => {
       const newToken = token - 1;
       await db.update(usersTable).set({ token: newToken}).where(eq(usersTable.id, Number(userId)));
-    }
+    },
+
+    getUserTokens: (tokens: number, timestamp: number) => {
+      const timeNow = Date.now();
+
+      return getTokens(tokens, timestamp, timeNow);
+    },
   };  
 };
