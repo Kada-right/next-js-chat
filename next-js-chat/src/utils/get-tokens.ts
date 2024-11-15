@@ -7,8 +7,6 @@ export const getTokens = (
 ) => {
   const numberOfDays = getDaysBetweenTimestamps(timestamp, timeNow);
 
-  //gör test för -dagar...
-
   if (numberOfDays === 0) return tokens;
 
   if (numberOfDays === 1) {

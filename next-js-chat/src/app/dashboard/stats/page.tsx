@@ -43,11 +43,11 @@ export default async function Page() {
       <div className="w-full max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg text-center">
         <h1 className="text-2xl font-bold mb-4 text-gray-800">Leaderboard</h1>
         <p className="text-lg text-gray-700 mb-2">
-          <span className="font-semibold">Number of messages by user:</span>{" "}
+          <span className="font-semibold">Number of written messages by user:</span>{" "}
           {numberOfMessagesByUser}
         </p>
         <p className="text-lg text-gray-700 mb-2">
-          <span className="font-semibold">Number of messages by fetch:</span>{" "}
+          <span className="font-semibold">Number of written messages per fetch:</span>{" "}
           {numberOfMessagesPerFetch}
         </p>
         <p className="text-lg text-gray-700 mb-2">

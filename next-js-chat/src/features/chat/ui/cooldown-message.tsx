@@ -14,7 +14,6 @@ export async function CooldownMessage({
 }: CooldownMessageBoardProps) {
   const name = await chatService.getUserNameById(cooldownMessage.user_id);
   const timestamp = new Date(cooldownMessage.timestamp);
-  
 
   return (
     <>

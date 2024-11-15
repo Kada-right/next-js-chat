@@ -11,13 +11,14 @@ type ValidMessageBoardProps = {
 
 export async function ValidMessage({ validMessage }: ValidMessageBoardProps) {
   const name = await chatService.getUserNameById(validMessage.user_id);
+  const timestamp = new Date(validMessage.timestamp);
 
   return (
     <>
       <p>Message: {validMessage.message}</p>
       <p>
         Date:{" "}
-        {`${new Date(validMessage.timestamp).toLocaleDateString()} ${new Date(validMessage.timestamp).toLocaleTimeString()}`}
+        {`${timestamp.toLocaleDateString()} ${timestamp.toLocaleTimeString()}`}
       </p>
       <p>Name: {name}</p>
     </>
