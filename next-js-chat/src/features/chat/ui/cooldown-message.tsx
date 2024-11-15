@@ -13,13 +13,15 @@ export async function CooldownMessage({
   cooldownMessage,
 }: CooldownMessageBoardProps) {
   const name = await chatService.getUserNameById(cooldownMessage.user_id);
+  const timestamp = new Date(cooldownMessage.timestamp);
+  
 
   return (
     <>
       <p>Cooldown message:</p>
       <p>
         Date:{" "}
-        {`${new Date(cooldownMessage.timestamp).toLocaleDateString()} ${new Date(cooldownMessage.timestamp).toLocaleTimeString()}`}
+        {`${timestamp.toLocaleDateString()} ${timestamp.toLocaleTimeString()}`}
       </p>
       <p>Name: {name}</p>
     </>
