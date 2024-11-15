@@ -6,9 +6,7 @@ import { chatService } from "./instance";
 export async function postMessageAction(formData: FormData) {
   const message = formData.get("message") as string;
 
-  // Skicka vidare till service för validering
-
-  const hardCodedUserId = 1; // Ändra sen
+  const hardCodedUserId = 1;
 
   await chatService.postMessage(message, hardCodedUserId);
 }
