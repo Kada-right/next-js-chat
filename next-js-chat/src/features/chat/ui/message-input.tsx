@@ -25,7 +25,7 @@ export default function MessageInput() {
           className="bg-slate-500 mt-4 px-4 py-2 rounded-md text-white font-medium mx-auto block transition-transform transform hover:bg-slate-6  00 hover:scale-105"
           type="submit"
         >
-          Submit
+          Send message
         </button>
       </form>
       <FetchMessageButton />
