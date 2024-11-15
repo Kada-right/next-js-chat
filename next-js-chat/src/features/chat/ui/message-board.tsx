@@ -1,6 +1,20 @@
-import { MessageBoardProps } from "../types";
 import { CooldownMessage } from "./cooldown-message";
 import { ValidMessage } from "./valid-message";
+
+type MessageBoardProps = {
+  cooldownMessages: {
+    id: number;
+    message: string;
+    timestamp: number;
+    user_id: number;
+  }[];
+  validMessage: {
+    id: number;
+    message: string;
+    timestamp: number;
+    user_id: number;
+  }[];
+};
 
 export default function MessageBoard({
   validMessage,
