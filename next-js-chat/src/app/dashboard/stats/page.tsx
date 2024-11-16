@@ -47,12 +47,12 @@ export default async function Page() {
           {numberOfMessagesByUser}
         </p>
         <p className="text-lg text-gray-700 mb-2">
-          <span className="font-semibold">Number of written messages per fetch:</span>{" "}
+          <span className="font-semibold">Number of messages per fetch:</span>{" "}
           {numberOfMessagesPerFetch}
         </p>
         <p className="text-lg text-gray-700 mb-2">
           <span className="font-semibold">
-            Number of valid messages per fetch:
+          Number of new messages per fetch:
           </span>{" "}
           {numberOfValidMessagesPerFetch}
         </p>
