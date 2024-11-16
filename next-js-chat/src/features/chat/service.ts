@@ -124,5 +124,9 @@ export const createService = (db: Db) => {
 
       return getTokens(tokens, timestamp, timeNow);
     },
+
+    getNumberOfFetchedMessagesByUserId: async (userId: string) => {
+      return (await db.select().from(fetchMessagesTable).where(eq(fetchMessagesTable.user_id, Number(userId)))).length;
+    },
   };
 };
