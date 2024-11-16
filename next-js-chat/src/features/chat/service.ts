@@ -96,11 +96,11 @@ export const createService = (db: Db) => {
       return fetchedMessage[1].timestamp;
     },
 
-    updateUserTokenById: async (token: number, userId: number) => {
+    updateUserTokenById: async (token: number, userId: string) => {
       await db
         .update(usersTable)
         .set({ token })
-        .where(eq(usersTable.id, userId));
+        .where(eq(usersTable.id, Number(userId)));
     },
 
     getTokensById: async (userId: string) => {

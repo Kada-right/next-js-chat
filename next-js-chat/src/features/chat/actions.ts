@@ -23,6 +23,8 @@ export async function postFetchMessageAction(userId: string) {
     throw new Error("No tokens left");
   }
 
+  await chatService.updateUserTokenById(tokens, userId);
+
   await chatService.postFetchedMessage(userId);
 
   await chatService.decrementTokenById(userId, tokens);
