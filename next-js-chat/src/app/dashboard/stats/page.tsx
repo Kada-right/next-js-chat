@@ -27,11 +27,17 @@ async function getStats() {
   const numberOfMessagesPerFetch = (await getMessagesPerFetch(false))
     .messagesPerFetch;
 
+  const numberOfFetchedMessagesByUser = await chatService.getNumberOfFetchedMessagesByUserId("1");
+  const numberOfWrittenMessages = (await chatService.getAllMessages()).length;
+  const averageFetchedMessages = numberOfWrittenMessages / numberOfFetchedMessagesByUser;
+
   return {
     numberOfMessagesByUser,
     numberOfValidMessagesPerFetch,
     numberOfMessagesPerFetch,
     validTimestamp,
+    averageFetchedMessages,
+    numberOfFetchedMessagesByUser
   };
 }
 
@@ -41,10 +47,14 @@ export default async function Page() {
     numberOfValidMessagesPerFetch,
     numberOfMessagesPerFetch,
     validTimestamp,
+    averageFetchedMessages,
+    numberOfFetchedMessagesByUser
   } = await getStats();
 
   const messagesTextUser = numberOfMessagesByUser > 1 || numberOfMessagesByUser === 0 ? "messages" : "message";
   const messagesTextFetch = numberOfMessagesPerFetch > 1 || numberOfMessagesPerFetch === 0 ? "messages" : "message";
+  const messagesTextAverage = averageFetchedMessages > 1 || averageFetchedMessages === 0 ? "messages" : "message";
+  const wasWereTextAverage = averageFetchedMessages > 1 || averageFetchedMessages === 0 ? "were" : "was";
   const wasWereTextFetch = numberOfMessagesPerFetch > 1 || numberOfMessagesPerFetch === 0 ? "were" : "was";
   const wasWereTextValid = numberOfValidMessagesPerFetch > 1 || numberOfValidMessagesPerFetch === 0  ? "were" : "was";
 
@@ -59,6 +69,16 @@ export default async function Page() {
         </p>
         <p className="text-lg text-gray-700 mb-2">
           <span className="font-semibold">
+            The user has fetched a total of,<br /> {numberOfFetchedMessagesByUser} {messagesTextAverage}.
+          </span>{" "}
+        </p>
+        <p className="text-lg text-gray-700 mb-2">
+          <span className="font-semibold">
+            In average {averageFetchedMessages} {messagesTextAverage} {wasWereTextAverage} fetched.
+          </span>
+        </p>
+        <p className="text-lg text-gray-700 mb-2">
+          <span className="font-semibold">
             As of{" "}
             {`${new Date(validTimestamp).toLocaleTimeString("en-US", { hour12: false, hour: "2-digit", minute: "2-digit" })} on ${new Date(validTimestamp).toISOString().split("T")[0]}`}
             , <br /> {numberOfMessagesPerFetch} new {messagesTextFetch} {wasWereTextFetch} recorded.
@@ -68,7 +88,7 @@ export default async function Page() {
           <span className="font-semibold">
             Of the new {messagesTextFetch} recorded,<br /> {numberOfValidMessagesPerFetch} {wasWereTextValid} not on cooldown.
           </span>
-        </p>
+        </p>        
       </div>
     </div>
   );
