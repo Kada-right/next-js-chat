@@ -1,7 +1,7 @@
 import { postMessageAction } from "@/features/chat/actions";
 import FetchMessageButton from "./fetch-message-button";
 
-export default function MessageInput({ tokens }: {tokens: number}) {
+export default function MessageInput({ tokens }: { tokens: number }) {
   return (
     <div className="w-full shadow-lg rounded-lg mt-0 p-5">
       <form action={postMessageAction}>
@@ -29,7 +29,7 @@ export default function MessageInput({ tokens }: {tokens: number}) {
         </button>
       </form>
       <FetchMessageButton />
-      Tokens: { tokens}
+      Tokens: {tokens}
     </div>
   );
 }

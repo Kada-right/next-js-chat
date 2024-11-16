@@ -5,14 +5,14 @@ import MessageBoard from "@/features/chat/ui/message-board";
 export default async function Page() {
   const timestamp = await chatService.getLatestFetchedMessageTimestampById("1");
 
-  const tokens = await chatService.getTokensById("1");  
+  const tokens = await chatService.getTokensById("1");
 
   const cooldownMessages =
     await chatService.getAllMessagesByTimestampInCooldown(timestamp);
 
   const validMessages =
-    await chatService.getAllValidMessagesByTimestamp(timestamp); 
- 
+    await chatService.getAllValidMessagesByTimestamp(timestamp);
+
   return (
     <div className="h-screen bg-gradient-to-r from-gray-100 to-slate-500 flex items-center justify-center">
       <div className="w-full max-w-screen-lg mx-auto border-t-2 border-r-2 border-b-2 border-l-2 border-slate-500 rounded-lg shadow-lg">
