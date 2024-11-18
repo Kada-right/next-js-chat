@@ -3,11 +3,14 @@
 import CustomLink from "../custom-link";
 import { useToggleSections } from "@/utils/hooks";
 import NavBarButton from "../nav-bar-button";
+
 export function NavLinks() {
   const { hiddenStates, toggleSection } = useToggleSections();
 
   return (
-    <div className="bg-slate-400 w-60 flex flex-col items-start border-2 border-red-600">
+    <div
+      className="bg-slate-400 w-60 flex flex-col items-start border-3 h-screen sticky top-0 overflow-y-auto"
+    >
       <NavBarButton
         onclick={toggleSection}
         folderSection="foundations"
