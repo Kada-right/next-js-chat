@@ -1,3 +1,5 @@
+import LoginWrapper from "@/features/chat/ui/login-wrapper";
+
 export default function Home() {
   return (
     <div className="flex items-center justify-center h-screen bg-gradient-to-r from-gray-100 to-slate-500">
@@ -42,13 +44,8 @@ export default function Home() {
               //required
             />
           </div>
-          <a
-            href="/dashboard/chat"
-            className="bg-slate-400 hover:bg-slate-500 text-white font-semibold py-2 px-8 rounded-md transition-transform transform hover:scale-105 mt-0 block w-4/4 mx-auto text-center"
-          >
-            Login
-          </a>
         </form>
+        <LoginWrapper />
       </div>
     </div>
   );

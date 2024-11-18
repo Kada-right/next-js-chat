@@ -2,7 +2,6 @@
 
 import { NavLinks } from "@/ui/design-system/left-nav";
 
-
 export default function Layout({ children }) {
   return (
     <div className="flex">
@@ -12,10 +11,7 @@ export default function Layout({ children }) {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-grow p-4">
-        {children}
-      </main>
+      <main className="flex-grow p-4">{children}</main>
     </div>
   );
 }
-

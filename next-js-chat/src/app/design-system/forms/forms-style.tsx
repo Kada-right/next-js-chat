@@ -1,12 +1,12 @@
 export const formElements = [
-    {
-      name: "Text Input",
-      description: "A standard text input field for user input.",
-      exampleContent: (
-        <input
-          type="text"
-          placeholder="Enter text"
-          className="
+  {
+    name: "Text Input",
+    description: "A standard text input field for user input.",
+    exampleContent: (
+      <input
+        type="text"
+        placeholder="Enter text"
+        className="
             w-full px-4 py-2 
             border border-gray-300 
             rounded-md 
@@ -14,9 +14,9 @@ export const formElements = [
             focus:ring-2 
             focus:ring-blue-500
           "
-        />
-      ),
-      usageCode: `<input
+      />
+    ),
+    usageCode: `<input
     type="text"
     placeholder="Enter text"
     className="
@@ -28,15 +28,15 @@ export const formElements = [
       focus:ring-blue-500
     "
   />`,
-    },
-    {
-      name: "Password Input",
-      description: "An input field for entering secure password data.",
-      exampleContent: (
-        <input
-          type="password"
-          placeholder="Enter password"
-          className="
+  },
+  {
+    name: "Password Input",
+    description: "An input field for entering secure password data.",
+    exampleContent: (
+      <input
+        type="password"
+        placeholder="Enter password"
+        className="
             w-full px-4 py-2 
             border border-gray-300 
             rounded-md 
@@ -44,9 +44,9 @@ export const formElements = [
             focus:ring-2 
             focus:ring-blue-500
           "
-        />
-      ),
-      usageCode: `<input
+      />
+    ),
+    usageCode: `<input
     type="password"
     placeholder="Enter password"
     className="
@@ -58,13 +58,13 @@ export const formElements = [
       focus:ring-blue-500
     "
   />`,
-    },
-    {
-      name: "Submit Button",
-      description: "A button for submitting forms or triggering actions.",
-      exampleContent: (
-        <button
-          className="
+  },
+  {
+    name: "Submit Button",
+    description: "A button for submitting forms or triggering actions.",
+    exampleContent: (
+      <button
+        className="
             bg-blue-500 
             hover:bg-blue-600 
             text-white 
@@ -75,11 +75,11 @@ export const formElements = [
             transform 
             hover:scale-105
           "
-        >
-          Submit
-        </button>
-      ),
-      usageCode: `<button
+      >
+        Submit
+      </button>
+    ),
+    usageCode: `<button
     className="
       bg-blue-500 
       hover:bg-blue-600 
@@ -94,6 +94,5 @@ export const formElements = [
   >
     Submit
   </button>`,
-    },
-  ];
-  
+  },
+];

@@ -22,16 +22,18 @@ export default function MessageInput({ tokens }: { tokens: number }) {
             placeholder="Skriv ditt meddelande här..."
           />
         </div>
-{/*         <button
+        {/*         <button
           className="bg-slate-500 mt-4 px-4 py-2 rounded-md text-white font-medium mx-auto block transition-transform transform hover:bg-slate-6  00 hover:scale-105"
           type="submit"
         >
           Send message
         </button> */}
-        <div className="pt-2 flex justify-center"><RegularButton name="Send message"/></div>
+        <div className="pt-2 flex justify-center">
+          <RegularButton name="Send message" />
+        </div>
       </form>
       <div className="pt-2 flex justify-center">
-      <FetchMessageButton />
+        <FetchMessageButton />
       </div>
       Tokens: {tokens}
     </div>

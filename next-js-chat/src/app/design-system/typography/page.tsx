@@ -15,12 +15,15 @@ export default function TypographyPage() {
       <section className="m-4">
         <h2 className="font-bold text-3xl">Typography Styles</h2>
         <p className="mt-2">
-          Here are the typography styles defined in the project along with their descriptions and example usage:
+          Here are the typography styles defined in the project along with their
+          descriptions and example usage:
         </p>
 
         {typographyStyles.map((style) => (
           <div key={style.name} className="border-b border-gray-300 py-4">
-            <div className={`p-4 bg-gray-50 rounded-md mb-4 ${style.className}`}>
+            <div
+              className={`p-4 bg-gray-50 rounded-md mb-4 ${style.className}`}
+            >
               {style.exampleText}
             </div>
             <h3 className="font-semibold text-lg">{style.name}</h3>

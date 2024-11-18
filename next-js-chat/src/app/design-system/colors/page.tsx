@@ -6,14 +6,16 @@ export default function ColorsPage() {
       <section className="m-4">
         <h1 className="font-bold text-5xl">Colors</h1>
         <p className="py-2">
-          Below is a collection of the colors used in the project. Each color is described by its name, usage, and appearance.
+          Below is a collection of the colors used in the project. Each color is
+          described by its name, usage, and appearance.
         </p>
       </section>
 
       <section className="m-4">
         <h2 className="font-bold text-3xl">Color Palette</h2>
         <p className="mt-2">
-          Here are the colors defined in the project along with their descriptions and example usage:
+          Here are the colors defined in the project along with their
+          descriptions and example usage:
         </p>
 
         {colors.map((color) => (

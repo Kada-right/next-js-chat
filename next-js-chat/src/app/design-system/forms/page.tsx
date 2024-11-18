@@ -15,7 +15,8 @@ export default function FormsPage() {
       <section className="m-4">
         <h2 className="font-bold text-3xl">Form Elements</h2>
         <p className="mt-2">
-          Here are the form elements defined in the project along with their descriptions and example usage:
+          Here are the form elements defined in the project along with their
+          descriptions and example usage:
         </p>
 
         {formElements.map((element) => (
