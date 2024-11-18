@@ -1,10 +1,21 @@
-import { NavLinks } from "../../ui/design-system/left-nav";
+// components/Layout.js
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+import { NavLinks } from "@/ui/design-system/left-nav";
+
+
+export default function Layout({ children }) {
   return (
-    <div className="flex flex-row min-h-screen">
-      <NavLinks />
-      <div className="flex-grow">{children}</div>
+    <div className="flex">
+      {/* Sidebar */}
+      <aside className="w-[240px] bg-slate-400 h-screen sticky top-0 overflow-y-auto flex-shrink-0">
+        <NavLinks />
+      </aside>
+
+      {/* Main Content */}
+      <main className="flex-grow p-4">
+        {children}
+      </main>
     </div>
   );
 }
+
