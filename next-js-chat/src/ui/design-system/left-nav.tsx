@@ -7,7 +7,7 @@ export function NavLinks() {
   const { hiddenStates, toggleSection } = useToggleSections();
 
   return (
-    <div className="bg-slate-400 w-40 flex flex-col items-start border-2 border-red-600">
+    <div className="bg-slate-400 w-60 flex flex-col items-start border-2 border-red-600">
       <NavBarButton
         onclick={toggleSection}
         folderSection="foundations"
