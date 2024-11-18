@@ -28,14 +28,14 @@ export function NavLinks() {
         <span>Foundations</span>
         {hideFoundation ? <IoIosArrowForward /> : <IoIosArrowDown />}
       </button>
-      <div className="hover:bg-slate-200 w-full ml-4 flex flex-col">
-        <Link hidden={hideFoundation} href={"/design-system/colors"}>
+      <div className="flex flex-col w-full">
+        <Link className="pl-4 hover:bg-slate-300 w-full" hidden={hideFoundation} href={"/design-system/colors"}>
           Colors
         </Link>
-        <Link hidden={hideFoundation} href={"/design-system/layouts"}>
+        <Link className="pl-4 hover:bg-slate-300 w-full" hidden={hideFoundation} href={"/design-system/layouts"}>
           Layouts
         </Link>
-        <Link hidden={hideFoundation} href={"/design-system/typography"}>
+        <Link className="pl-4 hover:bg-slate-300 w-full" hidden={hideFoundation} href={"/design-system/typography"}>
           Typography
         </Link>
       </div>
@@ -46,8 +46,8 @@ export function NavLinks() {
         Components
         {hideComponent ? <IoIosArrowForward /> : <IoIosArrowDown />}
       </button>
-      <div className="hover:bg-slate-200 ml-4 flex flex-col w-full">
-        <Link hidden={hideComponent} href={"/design-system/buttons"}>
+      <div className="flex flex-col w-full">
+        <Link className="pl-4 hover:bg-slate-300 w-full" hidden={hideComponent} href={"/design-system/buttons"}>
           Buttons
         </Link>
       </div>
@@ -59,8 +59,8 @@ export function NavLinks() {
         Patterns
         {hidePatterns ? <IoIosArrowForward /> : <IoIosArrowDown />}
       </button>
-      <div className="hover:bg-slate-200 ml-4 flex flex-col w-full">
-        <Link hidden={hidePatterns} href={"/design-system/forms"}>
+      <div className="  flex flex-col w-full">
+        <Link className="pl-4 hover:bg-slate-300 w-full" hidden={hidePatterns} href={"/design-system/forms"}>
           Forms
         </Link>
       </div>
