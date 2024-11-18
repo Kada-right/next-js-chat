@@ -1,14 +1,11 @@
 "use client";
-
 import Link from "next/link";
 import { useState } from "react";
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
-
 export function NavLinks() {
   const [hideFoundation, setHideFoundation] = useState(true);
   const [hideComponent, setHideComponent] = useState(true);
   const [hidePatterns, setHidePatterns] = useState(true);
-
   const toggleFoundationButton = () => {
     setHideFoundation(!hideFoundation);
   };
@@ -19,48 +16,83 @@ export function NavLinks() {
     setHidePatterns(!hidePatterns);
   };
 
+  type CustomLinkprops = {
+    href: string; 
+    name: string;
+    isHidden: boolean;
+  }
+
+  const CustomLink = ({ href, name, isHidden }: CustomLinkprops) => {
+    return (
+      <Link 
+        className="pl-6 hover:bg-slate-300 w-full py-1" 
+        href={href}
+        hidden={isHidden}
+      >
+        {name}
+      </Link>
+    );
+  };
+
+
   return (
-    <div className="hover:bg-slate-300bg-slate-400 w-40 flex flex-col items-start">
-      <button 
-        className=" hover:bg-slate-300 font-bold flex w-full items-center justify-between"
+    <div className="bg-slate-400 w-40 flex flex-col items-start border-2 border-red-600">
+      <button
+        className="hover:bg-slate-300 font-bold flex w-full items-center justify-between pl-2 pr-2 py-2"
         onClick={toggleFoundationButton}
       >
-        <span>Foundations</span>
+        <span className="pl-2">Foundations</span>
         {hideFoundation ? <IoIosArrowForward /> : <IoIosArrowDown />}
       </button>
       <div className="flex flex-col w-full">
-        <Link className="pl-4 hover:bg-slate-300 w-full" hidden={hideFoundation} href={"/design-system/colors"}>
-          Colors
-        </Link>
-        <Link className="pl-4 hover:bg-slate-300 w-full" hidden={hideFoundation} href={"/design-system/layouts"}>
-          Layouts
-        </Link>
-        <Link className="pl-4 hover:bg-slate-300 w-full" hidden={hideFoundation} href={"/design-system/typography"}>
-          Typography
-        </Link>
+        <CustomLink 
+          href="/design-system/colors"
+          name="Colors"
+          isHidden={hideFoundation}
+
+        />
+        <CustomLink 
+          href="/design-system/layouts"
+          name="Layouts"
+          isHidden={hideFoundation}
+
+        />
+        <CustomLink 
+          href="/design-system/typography"
+          name="Typography"
+          isHidden={hideFoundation}
+
+        />
       </div>
       <button
-        className="hover:bg-slate-300 font-bold flex w-full items-center justify-between"
+        className="hover:bg-slate-300 font-bold flex w-full items-center justify-between pl-2 pr-2 py-2"
         onClick={toggleComponentsButton}
       >
-        Components
+        <span className="pl-2">Components</span>
         {hideComponent ? <IoIosArrowForward /> : <IoIosArrowDown />}
       </button>
       <div className="flex flex-col w-full">
-        <Link className="pl-4 hover:bg-slate-300 w-full" hidden={hideComponent} href={"/design-system/buttons"}>
+        <Link
+          className="pl-6 hover:bg-slate-300 w-full py-1"
+          hidden={hideComponent}
+          href={"/design-system/buttons"}
+        >
           Buttons
         </Link>
       </div>
-
       <button
-        className=" hover:bg-slate-300 font-bold flex w-full items-center justify-between"
+        className="hover:bg-slate-300 font-bold flex w-full items-center justify-between pl-2 pr-2 py-2"
         onClick={togglePatternsButton}
       >
-        Patterns
+        <span className="pl-2">Patterns</span>
         {hidePatterns ? <IoIosArrowForward /> : <IoIosArrowDown />}
       </button>
-      <div className="  flex flex-col w-full">
-        <Link className="pl-4 hover:bg-slate-300 w-full" hidden={hidePatterns} href={"/design-system/forms"}>
+      <div className="flex flex-col w-full">
+        <Link
+          className="pl-6 hover:bg-slate-300 w-full py-1"
+          hidden={hidePatterns}
+          href={"/design-system/forms"}
+        >
           Forms
         </Link>
       </div>
