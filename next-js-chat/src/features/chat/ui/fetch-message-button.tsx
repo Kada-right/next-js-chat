@@ -12,6 +12,6 @@ export default function FetchMessageButton() {
   );
 
   return (
-    <RegularButton name="Fetch message" serverAction={postFetchMessageActionWithId}/>
+    <RegularButton name="Fetch message" handleClick={postFetchMessageActionWithId}/>
   );
 }

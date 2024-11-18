@@ -2,12 +2,13 @@
 
 type Props = {
     name: string;
-    serverAction?(): Promise<void>;
+    handleClick?(): Promise<void>;
 }
 
-export default function RegularButton( { name, serverAction } : Props ) {
+export default function RegularButton( { name, handleClick } : Props ) {
+    //window.location.href = "/dashboard/chat";
 return <button name={name} className=" bg-slate-500 rounded-md text-white py-2 px-3 transition-transform transform hover:bg-slate-600 hover:scale-105"
-        onClick={() => !serverAction ? "" : serverAction()}>
+        onClick={() => !handleClick ? "" : handleClick()}>
     {name}
 
 </button>;
