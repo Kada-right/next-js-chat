@@ -10,12 +10,12 @@ export function NavLinks() {
   return (
     <div
       className="
-        bg-slate-400 
+        bg-slate-100
         w-[240px] 
         flex 
         flex-col 
         items-start 
-        border-3 
+        border-r-2
         h-screen 
         sticky 
         top-0 
