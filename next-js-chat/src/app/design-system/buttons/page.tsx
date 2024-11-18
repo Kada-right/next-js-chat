@@ -20,7 +20,7 @@ export default function Page() {
     After importing the button, you can use it in your JSX as shown below:
   </p>
   <div className="border-2 border-blue-400 h-24 flex items-center pl-4 mt-4">
-    <RegularButton name={`Normal button`} />
+    <RegularButton name={`Click me!`} />
   </div>
   <p className="mt-4">
     You can pass a custom label to the <code>name</code> prop to define the buttons text. For example, you can change the button text to anything you like:
