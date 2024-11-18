@@ -20,15 +20,15 @@ export function NavLinks() {
   };
 
   return (
-    <div className="bg-slate-400 w-40 flex flex-col items-start">
-      <button
-        className="font-bold flex w-full items-center justify-between"
+    <div className="hover:bg-slate-300bg-slate-400 w-40 flex flex-col items-start">
+      <button 
+        className=" hover:bg-slate-300 font-bold flex w-full items-center justify-between"
         onClick={toggleFoundationButton}
       >
         <span>Foundations</span>
         {hideFoundation ? <IoIosArrowForward /> : <IoIosArrowDown />}
       </button>
-      <div className="ml-4 flex flex-col">
+      <div className="hover:bg-slate-200 w-full ml-4 flex flex-col">
         <Link hidden={hideFoundation} href={"/design-system/colors"}>
           Colors
         </Link>
@@ -40,26 +40,26 @@ export function NavLinks() {
         </Link>
       </div>
       <button
-        className="font-bold flex w-full items-center justify-between"
+        className="hover:bg-slate-300 font-bold flex w-full items-center justify-between"
         onClick={toggleComponentsButton}
       >
         Components
         {hideComponent ? <IoIosArrowForward /> : <IoIosArrowDown />}
       </button>
-      <div className="ml-4 flex flex-col">
+      <div className="hover:bg-slate-200 ml-4 flex flex-col w-full">
         <Link hidden={hideComponent} href={"/design-system/buttons"}>
           Buttons
         </Link>
       </div>
 
       <button
-        className="font-bold flex w-full items-center justify-between"
+        className=" hover:bg-slate-300 font-bold flex w-full items-center justify-between"
         onClick={togglePatternsButton}
       >
         Patterns
         {hidePatterns ? <IoIosArrowForward /> : <IoIosArrowDown />}
       </button>
-      <div className="ml-4 flex flex-col">
+      <div className="hover:bg-slate-200 ml-4 flex flex-col w-full">
         <Link hidden={hidePatterns} href={"/design-system/forms"}>
           Forms
         </Link>
