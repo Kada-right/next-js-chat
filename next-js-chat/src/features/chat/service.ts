@@ -126,7 +126,12 @@ export const createService = (db: Db) => {
     },
 
     getNumberOfFetchedMessagesByUserId: async (userId: string) => {
-      return (await db.select().from(fetchMessagesTable).where(eq(fetchMessagesTable.user_id, Number(userId)))).length;
+      return (
+        await db
+          .select()
+          .from(fetchMessagesTable)
+          .where(eq(fetchMessagesTable.user_id, Number(userId)))
+      ).length;
     },
   };
 };

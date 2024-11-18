@@ -27,9 +27,11 @@ async function getStats() {
   const numberOfMessagesPerFetch = (await getMessagesPerFetch(false))
     .messagesPerFetch;
 
-  const numberOfFetchedMessagesByUser = await chatService.getNumberOfFetchedMessagesByUserId("1");
+  const numberOfFetchedMessagesByUser =
+    await chatService.getNumberOfFetchedMessagesByUserId("1");
   const numberOfWrittenMessages = (await chatService.getAllMessages()).length;
-  const averageFetchedMessages = numberOfWrittenMessages / numberOfFetchedMessagesByUser;
+  const averageFetchedMessages =
+    numberOfWrittenMessages / numberOfFetchedMessagesByUser;
 
   return {
     numberOfMessagesByUser,
@@ -37,7 +39,7 @@ async function getStats() {
     numberOfMessagesPerFetch,
     validTimestamp,
     averageFetchedMessages,
-    numberOfFetchedMessagesByUser
+    numberOfFetchedMessagesByUser,
   };
 }
 
@@ -48,15 +50,31 @@ export default async function Page() {
     numberOfMessagesPerFetch,
     validTimestamp,
     averageFetchedMessages,
-    numberOfFetchedMessagesByUser
+    numberOfFetchedMessagesByUser,
   } = await getStats();
 
-  const messagesTextUser = numberOfMessagesByUser > 1 || numberOfMessagesByUser === 0 ? "messages" : "message";
-  const messagesTextFetch = numberOfMessagesPerFetch > 1 || numberOfMessagesPerFetch === 0 ? "messages" : "message";
-  const messagesTextAverage = averageFetchedMessages > 1 || averageFetchedMessages === 0 ? "messages" : "message";
-  const wasWereTextAverage = averageFetchedMessages > 1 || averageFetchedMessages === 0 ? "were" : "was";
-  const wasWereTextFetch = numberOfMessagesPerFetch > 1 || numberOfMessagesPerFetch === 0 ? "were" : "was";
-  const wasWereTextValid = numberOfValidMessagesPerFetch > 1 || numberOfValidMessagesPerFetch === 0  ? "were" : "was";
+  const messagesTextUser =
+    numberOfMessagesByUser > 1 || numberOfMessagesByUser === 0
+      ? "messages"
+      : "message";
+  const messagesTextFetch =
+    numberOfMessagesPerFetch > 1 || numberOfMessagesPerFetch === 0
+      ? "messages"
+      : "message";
+  const messagesTextAverage =
+    averageFetchedMessages > 1 || averageFetchedMessages === 0
+      ? "messages"
+      : "message";
+  const wasWereTextAverage =
+    averageFetchedMessages > 1 || averageFetchedMessages === 0 ? "were" : "was";
+  const wasWereTextFetch =
+    numberOfMessagesPerFetch > 1 || numberOfMessagesPerFetch === 0
+      ? "were"
+      : "was";
+  const wasWereTextValid =
+    numberOfValidMessagesPerFetch > 1 || numberOfValidMessagesPerFetch === 0
+      ? "were"
+      : "was";
 
   return (
     <div className="h-screen bg-gradient-to-r from-gray-100 to-slate-500 flex items-center justify-center">
@@ -64,31 +82,37 @@ export default async function Page() {
         <h1 className="text-2xl font-bold mb-4 text-gray-800">Leaderboard</h1>
         <p className="text-lg text-gray-700 mb-2">
           <span className="font-semibold">
-            The user has written a total of,<br /> {numberOfMessagesByUser} {messagesTextUser}.
+            The user has written a total of,
+            <br /> {numberOfMessagesByUser} {messagesTextUser}.
           </span>{" "}
         </p>
         <p className="text-lg text-gray-700 mb-2">
           <span className="font-semibold">
-            The user has fetched a total of,<br /> {numberOfFetchedMessagesByUser} {messagesTextAverage}.
+            The user has fetched a total of,
+            <br /> {numberOfFetchedMessagesByUser} {messagesTextAverage}.
           </span>{" "}
         </p>
         <p className="text-lg text-gray-700 mb-2">
           <span className="font-semibold">
-            In average {averageFetchedMessages} {messagesTextAverage} {wasWereTextAverage} fetched.
+            In average {averageFetchedMessages} {messagesTextAverage}{" "}
+            {wasWereTextAverage} fetched.
           </span>
         </p>
         <p className="text-lg text-gray-700 mb-2">
           <span className="font-semibold">
             As of{" "}
             {`${new Date(validTimestamp).toLocaleTimeString("en-US", { hour12: false, hour: "2-digit", minute: "2-digit" })} on ${new Date(validTimestamp).toISOString().split("T")[0]}`}
-            , <br /> {numberOfMessagesPerFetch} new {messagesTextFetch} {wasWereTextFetch} recorded.
+            , <br /> {numberOfMessagesPerFetch} new {messagesTextFetch}{" "}
+            {wasWereTextFetch} recorded.
           </span>
         </p>
         <p className="text-lg text-gray-700 mb-2">
           <span className="font-semibold">
-            Of the new {messagesTextFetch} recorded,<br /> {numberOfValidMessagesPerFetch} {wasWereTextValid} not on cooldown.
+            Of the new {messagesTextFetch} recorded,
+            <br /> {numberOfValidMessagesPerFetch} {wasWereTextValid} not on
+            cooldown.
           </span>
-        </p>        
+        </p>
       </div>
     </div>
   );
