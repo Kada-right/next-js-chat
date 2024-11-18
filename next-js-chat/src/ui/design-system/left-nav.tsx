@@ -9,7 +9,18 @@ export function NavLinks() {
 
   return (
     <div
-      className="bg-slate-400 w-60 flex flex-col items-start border-3 h-screen sticky top-0 overflow-y-auto"
+      className="
+        bg-slate-400 
+        w-[240px] 
+        flex 
+        flex-col 
+        items-start 
+        border-3 
+        h-screen 
+        sticky 
+        top-0 
+        overflow-y-auto
+      "
     >
       <NavBarButton
         onclick={toggleSection}
