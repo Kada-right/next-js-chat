@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 
 export function NavLinks() {
   const [hideFoundation, setHideFoundation] = useState(true);
   const [hideComponent, setHideComponent] = useState(true);
-  const [hidepatterns, setHidePatterns] =useState(true);
+  const [hidePatterns, setHidePatterns] = useState(true);
 
   const toggleFoundationButton = () => {
     setHideFoundation(!hideFoundation);
@@ -15,12 +16,18 @@ export function NavLinks() {
     setHideComponent(!hideComponent);
   };
   const togglePatternsButton = () => {
-    setHidePatterns(!hidepatterns);
+    setHidePatterns(!hidePatterns);
   };
 
   return (
-    <div className="bg-fuchsia-600 w-40 flex flex-col items-start">
-      <button onClick={toggleFoundationButton}>Foundations</button>
+    <div className="bg-slate-400 w-40 flex flex-col items-start">
+      <button
+        className="font-bold flex w-full items-center justify-between"
+        onClick={toggleFoundationButton}
+      >
+        <span>Foundations</span>
+        {hideFoundation ? <IoIosArrowForward /> : <IoIosArrowDown />}
+      </button>
       <div className="ml-4 flex flex-col">
         <Link hidden={hideFoundation} href={"/design-system/colors"}>
           Colors
@@ -32,17 +39,30 @@ export function NavLinks() {
           Typography
         </Link>
       </div>
-      <button onClick={toggleComponentsButton}>Components</button>
+      <button
+        className="font-bold flex w-full items-center justify-between"
+        onClick={toggleComponentsButton}
+      >
+        Components
+        {hideComponent ? <IoIosArrowForward /> : <IoIosArrowDown />}
+      </button>
       <div className="ml-4 flex flex-col">
-      <Link hidden={hideComponent} href={"/design-system/buttons"}>
-        Buttons
-      </Link>
+        <Link hidden={hideComponent} href={"/design-system/buttons"}>
+          Buttons
+        </Link>
       </div>
-      <button onClick={togglePatternsButton}>Patterns</button>
+
+      <button
+        className="font-bold flex w-full items-center justify-between"
+        onClick={togglePatternsButton}
+      >
+        Patterns
+        {hidePatterns ? <IoIosArrowForward /> : <IoIosArrowDown />}
+      </button>
       <div className="ml-4 flex flex-col">
-      <Link hidden={hidepatterns} href={"/design-system/forms"}>
-        Forms
-      </Link>
+        <Link hidden={hidePatterns} href={"/design-system/forms"}>
+          Forms
+        </Link>
       </div>
     </div>
   );
