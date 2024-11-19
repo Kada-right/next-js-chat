@@ -7,7 +7,7 @@ export default function LoginWrapper() {
   const router = useRouter();
 
   const handleClick = async () => {
-    router.push("/dashboard/chat");
+    router.push("/chat");
   };
 
   return <RegularButton name="Login" handleClick={handleClick} />;
