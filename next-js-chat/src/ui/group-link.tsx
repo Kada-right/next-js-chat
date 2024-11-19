@@ -7,10 +7,10 @@ import { DesignLink } from "./design-system/links";
 
 type Props = {
   name: "foundations" | "components" | "patterns";
-  designLinks: DesignLink[];
+  links: DesignLink[];
 };
 
-export default function GroupLink({ name, designLinks }: Props) {
+export default function GroupLink({ name, links: designLinks }: Props) {
   const [isHidden, setIsHidden] = useState(true);
   return (
     <>

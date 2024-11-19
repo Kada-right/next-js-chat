@@ -19,7 +19,7 @@ export const foundationLinks: DesignLink[] = [
 ];
 export const componentsLinks: DesignLink[] = [
   {
-    href: "/design-system/button",
+    href: "/design-system/buttons",
     name: "buttons",
   },
 ];

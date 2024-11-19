@@ -15,9 +15,9 @@ export function LeftNav() {
         overflow-y-auto
       "
     >
-      <GroupLink name="foundations" designLinks={foundationLinks} />
-      <GroupLink name="components" designLinks={componentsLinks} />
-      <GroupLink name="patterns" designLinks={patternLinks} />
+      <GroupLink name="foundations" links={foundationLinks} />
+      <GroupLink name="components" links={componentsLinks} />
+      <GroupLink name="patterns" links={patternLinks} />
     </div>
   );
 }
