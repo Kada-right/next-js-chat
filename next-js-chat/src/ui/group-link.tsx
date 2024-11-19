@@ -2,8 +2,8 @@
 
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import CustomLink from "./custom-link";
-import { DesignLink } from "@/utils/types";
 import { useState } from "react";
+import { DesignLink } from "./design-system/links";
 
 
 type Props = {

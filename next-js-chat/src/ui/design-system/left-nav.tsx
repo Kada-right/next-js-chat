@@ -1,32 +1,7 @@
 import GroupLink from "../group-link";
-import { DesignLink } from "@/utils/types";
+import { componentsLinks, foundationLinks, patternLinks } from "./links";
 
-const foundationLinks: DesignLink[] = [
-  {
-    href: "/design-system/colors",
-    name: "colors",
-  },
-  {
-    href: "/design-system/layouts",
-    name: "layouts",
-  },
-  {
-    href: "/design-system/typography",
-    name: "typography",
-  },
-];
-const componentsLinks: DesignLink[] = [
-  {
-    href: "/design-system/button",
-    name: "buttons",
-  }
-];
-const patternLinks: DesignLink[] = [
-  {
-    href: "/design-system/forms",
-    name: "forms"
-  }
-];
+
 
 
 
@@ -41,8 +16,6 @@ export function LeftNav() {
         items-start 
         border-r-2
         h-screen 
-        sticky 
-        top-0 
         overflow-y-auto
       "
     >
