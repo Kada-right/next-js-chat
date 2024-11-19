@@ -1,10 +1,9 @@
 "use client";
 
-import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import CustomLink from "./custom-link";
-import { SetStateAction, useState } from "react";
 import { DesignLink } from "./design-system/links";
 import { LinkButton } from "./design-system/buttons/link-button";
+import { useState } from "react";
 
 type Props = {
   name: "foundations" | "components" | "patterns";
