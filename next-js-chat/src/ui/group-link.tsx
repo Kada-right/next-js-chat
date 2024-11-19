@@ -14,7 +14,7 @@ export default function GroupLinks({ name, links: designLinks }: Props) {
   const [isHidden, setIsHidden] = useState(true);
   return (
     <>
-      <LinkButton name={name} isHidden={isHidden} setIsHidden={setIsHidden} /> 
+      <LinkButton name={name} isHidden={isHidden} setIsHidden={setIsHidden} />
       <div className="flex flex-col w-full">
         {designLinks.map((link, index) => (
           <CustomLink
