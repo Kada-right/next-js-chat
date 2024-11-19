@@ -13,6 +13,7 @@ type Props = {
 export async function Message({ sentMessage, isValid }: Props) {
   const name = await chatService.getUserNameById(sentMessage.user_id);
   const timestamp = new Date(sentMessage.timestamp);
+  const time = `${timestamp.toLocaleDateString()} ${timestamp.getHours().toString().padStart(2, "0")}:${timestamp.getMinutes().toString().padStart(2, "0")}`;
   const messageToShow = isValid
     ? `Message: ${sentMessage.message}`
     : "Cooldown message";
@@ -20,10 +21,7 @@ export async function Message({ sentMessage, isValid }: Props) {
   return (
     <div className="mb-4 w-full px-4">
       <p>{messageToShow}</p>
-      <p>
-        Date:{" "}
-        {`${timestamp.toLocaleDateString()} ${timestamp.toLocaleTimeString()}`}
-      </p>
+      <p>{time}</p>
       <p>Name: {name}</p>
     </div>
   );
