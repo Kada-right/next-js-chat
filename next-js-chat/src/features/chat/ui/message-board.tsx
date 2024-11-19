@@ -1,37 +1,26 @@
-import { CooldownMessage } from "./cooldown-message";
-import { ValidMessage } from "./valid-message";
+import { chatService } from "../instance";
+import { Message } from "./message";
 
-type MessageBoardProps = {
-  cooldownMessages: {
-    id: number;
-    message: string;
-    timestamp: number;
-    user_id: number;
-  }[];
-  validMessage: {
-    id: number;
-    message: string;
-    timestamp: number;
-    user_id: number;
-  }[];
-};
+export default async function MessageBoard() {
 
-export default function MessageBoard({
-  validMessage,
-  cooldownMessages,
-}: MessageBoardProps) {
+  const timestamp = await chatService.getLatestFetchedMessageTimestampById("1");
+
+  const cooldownMessages = await chatService.getAllMessagesByTimestampInCooldown(timestamp);
+
+  const validMessage = await chatService.getAllValidMessagesByTimestamp(timestamp);
+
   return (
-    <div className="bg-gradient-to-r from-gray-100 to-slate-500 rounded-lg w-full h-full overflow-y-auto flex flex-col items-center pt-4">
+    <>
       {cooldownMessages.map((message) => (
         <div key={message.id} className="mb-4 w-full px-4">
-          <CooldownMessage cooldownMessage={message} />
+          <Message sentMessage={message} isValid={false} />
         </div>
       ))}
       {validMessage.map((message) => (
         <div key={message.id} className="mb-4 w-full px-4">
-          <ValidMessage validMessage={message} />
+          <Message sentMessage={message} isValid={true} />
         </div>
       ))}
-    </div>
+    </>
   );
 }
