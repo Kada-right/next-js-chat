@@ -1,12 +1,36 @@
-"use client";
+import GroupLink from "../group-link";
+import { DesignLink } from "@/utils/types";
 
-import CustomLink from "../custom-link";
-import { useToggleSections } from "@/utils/hooks";
-import NavBarButton from "../nav-bar-button";
+const foundationLinks: DesignLink[] = [
+  {
+    href: "/design-system/colors",
+    name: "colors",
+  },
+  {
+    href: "/design-system/layouts",
+    name: "layouts",
+  },
+  {
+    href: "/design-system/typography",
+    name: "typography",
+  },
+];
+const componentsLinks: DesignLink[] = [
+  {
+    href: "/design-system/button",
+    name: "buttons",
+  }
+];
+const patternLinks: DesignLink[] = [
+  {
+    href: "/design-system/forms",
+    name: "forms"
+  }
+];
+
+
 
 export function LeftNav() {
-  const { hiddenStates, toggleSection } = useToggleSections();
-
   return (
     <div
       className="
@@ -22,38 +46,9 @@ export function LeftNav() {
         overflow-y-auto
       "
     >
-      <NavBarButton
-        onclick={toggleSection}
-        folderSection="foundations"
-        name="Foundations"
-        isHidden={hiddenStates.foundations}
-      />
-      <NavBarButton
-        onclick={toggleSection}
-        folderSection="components"
-        name="Components"
-        isHidden={hiddenStates.components}
-      />
-      <div className="flex flex-col w-full">
-        <CustomLink
-          href="/design-system/buttons"
-          name="Buttons"
-          isHidden={hiddenStates.components}
-        />
-      </div>
-      <NavBarButton
-        onclick={toggleSection}
-        folderSection="patterns"
-        name="Patterns"
-        isHidden={hiddenStates.patterns}
-      />
-      <div className="flex flex-col w-full">
-        <CustomLink
-          href="/design-system/forms"
-          name="Forms"
-          isHidden={hiddenStates.patterns}
-        />
-      </div>
+      <GroupLink name="foundations" designLinks={foundationLinks} />
+      <GroupLink name="components" designLinks={componentsLinks} />
+      <GroupLink name="patterns" designLinks={patternLinks} />
     </div>
   );
 }
