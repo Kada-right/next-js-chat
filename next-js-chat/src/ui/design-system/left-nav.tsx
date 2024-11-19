@@ -4,7 +4,7 @@ import CustomLink from "../custom-link";
 import { useToggleSections } from "@/utils/hooks";
 import NavBarButton from "../nav-bar-button";
 
-export function NavLinks() {
+export function LeftNav() {
   const { hiddenStates, toggleSection } = useToggleSections();
 
   return (
@@ -28,23 +28,6 @@ export function NavLinks() {
         name="Foundations"
         isHidden={hiddenStates.foundations}
       />
-      <div className="flex flex-col w-full">
-        <CustomLink
-          href="/design-system/colors"
-          name="Colors"
-          isHidden={hiddenStates.foundations}
-        />
-        <CustomLink
-          href="/design-system/layouts"
-          name="Layouts"
-          isHidden={hiddenStates.foundations}
-        />
-        <CustomLink
-          href="/design-system/typography"
-          name="Typography"
-          isHidden={hiddenStates.foundations}
-        />
-      </div>
       <NavBarButton
         onclick={toggleSection}
         folderSection="components"
