@@ -1,4 +1,4 @@
-import { chatService } from "../instance";
+import { chatService } from "../../instance";
 import { Message } from "./message";
 
 export default async function MessageBoard() {
@@ -11,16 +11,12 @@ export default async function MessageBoard() {
     await chatService.getAllValidMessagesByTimestamp(timestamp);
 
   return (
-    <div className="w-full h-96 overflow-y-auto">
+    <div className="h-96 overflow-y-auto pt-2">
       {cooldownMessages.map((message) => (
-        <div key={message.id} className="mb-4 w-full px-4">
-          <Message sentMessage={message} isValid={false} />
-        </div>
+        <Message key={message.id} sentMessage={message} isValid={false} />
       ))}
       {validMessage.map((message) => (
-        <div key={message.id} className="mb-4 w-full px-4">
-          <Message sentMessage={message} isValid={true} />
-        </div>
+        <Message key={message.id} sentMessage={message} isValid={true} />
       ))}
     </div>
   );

@@ -1,5 +1,3 @@
-import { ChatPage } from "@/features/chat/ui/chat-page";
+import { ChatPage } from "@/features";
 
-export default function Page() {
-  return <ChatPage />;
-}
+export default ChatPage;

@@ -1,5 +1,5 @@
 import FetchMessageButton from "./fetch-message-button";
-import { chatService } from "../instance";
+import { chatService } from "../../instance";
 import { Form } from "./form";
 
 export default async function MessageInput() {

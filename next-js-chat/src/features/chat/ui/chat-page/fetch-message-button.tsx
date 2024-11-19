@@ -1,7 +1,7 @@
 "use client";
 
 import RegularButton from "@/ui/design-system/buttons/regular-button";
-import { postFetchMessageAction } from "../actions";
+import { postFetchMessageAction } from "../../actions";
 
 export default function FetchMessageButton() {
   const hardCodedUserId = "1";

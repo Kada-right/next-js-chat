@@ -1,4 +1,4 @@
-import { chatService } from "../instance";
+import { chatService } from "../../instance";
 
 type Props = {
   sentMessage: {
@@ -18,13 +18,13 @@ export async function Message({ sentMessage, isValid }: Props) {
     : "Cooldown message";
 
   return (
-    <>
+    <div className="mb-4 w-full px-4">
       <p>{messageToShow}</p>
       <p>
         Date:{" "}
         {`${timestamp.toLocaleDateString()} ${timestamp.toLocaleTimeString()}`}
       </p>
       <p>Name: {name}</p>
-    </>
+    </div>
   );
 }
