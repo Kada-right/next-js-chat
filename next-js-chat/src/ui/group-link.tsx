@@ -6,7 +6,7 @@ import { LinkButton } from "./design-system/buttons/link-button";
 import { useState } from "react";
 
 type Props = {
-  name: "foundations" | "components" | "patterns";
+  name: "Foundations" | "Components" | "Patterns";
   links: DesignLink[];
 };
 
