@@ -57,7 +57,7 @@ export function NavLinks() {
           name="Buttons"
           isHidden={hiddenStates.components}
         />
-      </div>  
+      </div>
       <NavBarButton
         onclick={toggleSection}
         folderSection="patterns"
