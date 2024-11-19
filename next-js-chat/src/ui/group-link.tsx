@@ -5,17 +5,13 @@ import CustomLink from "./custom-link";
 import { useState } from "react";
 import { DesignLink } from "./design-system/links";
 
-
 type Props = {
   name: "foundations" | "components" | "patterns";
-  designLinks: DesignLink[]
+  designLinks: DesignLink[];
 };
 
-export default function GroupLink({
-  name,
-  designLinks
-}: Props) {
-const [isHidden, setIsHidden] = useState(true);
+export default function GroupLink({ name, designLinks }: Props) {
+  const [isHidden, setIsHidden] = useState(true);
   return (
     <>
       <button
@@ -26,7 +22,14 @@ const [isHidden, setIsHidden] = useState(true);
         {isHidden ? <IoIosArrowForward /> : <IoIosArrowDown />}
       </button>
       <div className="flex flex-col w-full">
-      {designLinks.map((link, index) => <CustomLink key={index} href={link.href} name={link.name} isHidden={isHidden}  />)}
+        {designLinks.map((link, index) => (
+          <CustomLink
+            key={index}
+            href={link.href}
+            name={link.name}
+            isHidden={isHidden}
+          />
+        ))}
       </div>
     </>
   );

@@ -1,10 +1,6 @@
 import GroupLink from "../group-link";
 import { componentsLinks, foundationLinks, patternLinks } from "./links";
 
-
-
-
-
 export function LeftNav() {
   return (
     <div
