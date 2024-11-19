@@ -1,5 +1,5 @@
 import RegularButton from "@/ui/design-system/buttons/regular-button";
-import { postMessageAction } from "..";
+import { postMessageAction } from "../../actions";
 
 export async function Form() {
   return (
