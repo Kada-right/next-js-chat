@@ -3,7 +3,6 @@
 import { useToggleSections, type FolderSection } from "@/utils/hooks";
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import CustomLink from "./custom-link";
-import { Index } from "drizzle-orm/mysql-core";
 
 type Props = {
   folderSection: FolderSection;
