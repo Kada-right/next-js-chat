@@ -6,7 +6,6 @@ type Props = {
 };
 
 export default function RegularButton({ name, handleClick }: Props) {
-  //window.location.href = "/dashboard/chat";
   return (
     <button
       name={name}
