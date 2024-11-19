@@ -13,7 +13,9 @@ type Props = {
 export async function Message({ sentMessage, isValid }: Props) {
   const name = await chatService.getUserNameById(sentMessage.user_id);
   const timestamp = new Date(sentMessage.timestamp);
-  const messageToShow = isValid ? `Message: ${sentMessage.message}` : "Cooldown message";
+  const messageToShow = isValid
+    ? `Message: ${sentMessage.message}`
+    : "Cooldown message";
 
   return (
     <>
