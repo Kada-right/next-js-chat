@@ -2,25 +2,20 @@
 
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import CustomLink from "./custom-link";
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
 import { DesignLink } from "./design-system/links";
+import { LinkButton } from "./design-system/buttons/link-button";
 
 type Props = {
   name: "foundations" | "components" | "patterns";
   links: DesignLink[];
 };
 
-export default function GroupLink({ name, links: designLinks }: Props) {
+export default function GroupLinks({ name, links: designLinks }: Props) {
   const [isHidden, setIsHidden] = useState(true);
   return (
     <>
-      <button
-        className="hover:bg-slate-300 font-bold flex w-full items-center justify-between pl-2 pr-2 py-2"
-        onClick={() => setIsHidden(!isHidden)}
-      >
-        {name}
-        {isHidden ? <IoIosArrowForward /> : <IoIosArrowDown />}
-      </button>
+      <LinkButton name={name} isHidden={isHidden} setIsHidden={setIsHidden} /> 
       <div className="flex flex-col w-full">
         {designLinks.map((link, index) => (
           <CustomLink

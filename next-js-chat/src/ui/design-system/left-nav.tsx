@@ -1,4 +1,4 @@
-import GroupLink from "../group-link";
+import GroupLinks from "../group-link";
 import { componentsLinks, foundationLinks, patternLinks } from "./links";
 
 export function LeftNav() {
@@ -15,9 +15,9 @@ export function LeftNav() {
         overflow-y-auto
       "
     >
-      <GroupLink name="foundations" links={foundationLinks} />
-      <GroupLink name="components" links={componentsLinks} />
-      <GroupLink name="patterns" links={patternLinks} />
+      <GroupLinks name="foundations" links={foundationLinks} />
+      <GroupLinks name="components" links={componentsLinks} />
+      <GroupLinks name="patterns" links={patternLinks} />
     </div>
   );
 }
