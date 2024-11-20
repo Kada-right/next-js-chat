@@ -77,8 +77,8 @@ export default async function Page() {
       : "was";
 
   return (
-    <div className="h-screen bg-gradient-to-r from-gray-100 to-slate-500 flex items-center justify-center">
-      <div className="w-full max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg text-center">
+    <div className="pt-20">
+      <div className="max-w-md mx-auto bg-white p-6 border-2 border-slate-500 rounded-lg text-center">
         <h1 className="text-2xl font-bold mb-4 text-gray-800">Leaderboard</h1>
         <p className="text-lg text-gray-700 mb-2">
           <span className="font-semibold">
@@ -94,7 +94,7 @@ export default async function Page() {
         </p>
         <p className="text-lg text-gray-700 mb-2">
           <span className="font-semibold">
-            In average {averageFetchedMessages} {messagesTextAverage}{" "}
+            In average {Math.round(averageFetchedMessages)} {messagesTextAverage}{" "}
             {wasWereTextAverage} fetched.
           </span>
         </p>

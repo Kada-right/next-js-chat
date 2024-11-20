@@ -23,7 +23,7 @@ export default function Page() {
         <p className="mt-2">
           After importing the button, you can use it in your JSX as shown below:
         </p>
-        <div className="border-2 border-blue-400 h-24 flex items-center justify-center pl-4 mt-4">
+        <div className="border-2 text-white border-blue-400 h-24 flex items-center justify-center pl-4 mt-4">
           <RegularButton name={`Click me!`} />
         </div>
         <p className="mt-4">

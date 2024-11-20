@@ -3,15 +3,16 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
+import RegularButton from "../design-system/buttons/regular-button";
 
 const links = [
   {
     name: "Stats",
-    href: "/dashboard/stats",
+    href: "/stats",
   },
   {
     name: "Chat",
-    href: "/dashboard/chat",
+    href: "/chat",
   },
   {
     name: "Logout",
@@ -30,13 +31,13 @@ export function NavLinks() {
             key={link.name}
             href={link.href}
             className={clsx(
-              "mr-1 flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-slate-400 p-3 text-sm font-medium hover:bg-slate-300 md:flex-none md:justify-start md:p-2 md:px-3",
+              "ml-2",
               {
-                "bg-slate-300 ": pathname === link.href,
+                "": pathname === link.href,
               },
             )}
           >
-            <p>{link.name}</p>
+            <RegularButton name={link.name}/>
           </Link>
         );
       })}
