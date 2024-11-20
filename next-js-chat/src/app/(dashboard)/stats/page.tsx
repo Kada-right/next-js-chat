@@ -94,8 +94,8 @@ export default async function Page() {
         </p>
         <p className="text-lg text-gray-700 mb-2">
           <span className="font-semibold">
-            In average {Math.round(averageFetchedMessages)} {messagesTextAverage}{" "}
-            {wasWereTextAverage} fetched.
+            In average {Math.round(averageFetchedMessages)}{" "}
+            {messagesTextAverage} {wasWereTextAverage} fetched.
           </span>
         </p>
         <p className="text-lg text-gray-700 mb-2">

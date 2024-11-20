@@ -30,14 +30,11 @@ export function NavLinks() {
           <Link
             key={link.name}
             href={link.href}
-            className={clsx(
-              "ml-2",
-              {
-                "": pathname === link.href,
-              },
-            )}
+            className={clsx("ml-2", {
+              "": pathname === link.href,
+            })}
           >
-            <RegularButton name={link.name}/>
+            <RegularButton name={link.name} />
           </Link>
         );
       })}
