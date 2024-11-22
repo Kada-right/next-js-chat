@@ -34,7 +34,7 @@ export function NavLinks() {
               "": pathname === link.href,
             })}
           >
-            <RegularButton name={link.name} />
+            {link.name}
           </Link>
         );
       })}
